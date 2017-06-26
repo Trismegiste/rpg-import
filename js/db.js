@@ -8,7 +8,16 @@
 function init() {
     RpgImpro.document.vertex = [
         {
+            hashtag: 'scenario',
             sentence: "#templier veut tuer #nephilim"
+        },
+        {
+            hashtag: 'templier',
+            sentence: "Manteau noir"
+        },
+        {
+            hashtag: 'nephilim',
+            sentence: "un pj"
         }
     ]
 }

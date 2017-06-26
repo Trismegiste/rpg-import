@@ -1,10 +1,6 @@
 <spa>
-    <div>
-        <div class="pure-g">+</div>
-        <div class="pure-g" each="{ RpgImpro.document.getVertex() }">
-            <div class="pure-u-1">{sentence}</div>
-        </div>
-    </div>
+    <div>+</div>
+    <vertex each="{ vertex, idx in RpgImpro.document.getVertex() }"></vertex>
     <script>
         // this to hide waiting spinner
         this.on('mount', function () {

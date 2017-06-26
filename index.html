@@ -27,6 +27,7 @@
         <script src="./js/db.js"></script>
 
         <script src="./tag/spa.tag" type="riot/tag"></script>
+        <script src="./tag/vertex.tag" type="riot/tag"></script>
 
         <script>
             // container for this SPA
@@ -38,7 +39,7 @@
             // Here we go
             riot.route.start(true);
             riot.mount('*');
-            riot.route('list')
+            riot.route('vertex/list')
         </script>
     </body>
 </html>
