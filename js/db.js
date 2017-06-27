@@ -8,17 +8,23 @@ function init() {
         {
             pk: 2,
             hashtag: 'templier',
-            sentence: "Manteau noir"
+            sentence: "Manteau noir équipé #artefact"
         },
         {
             pk: 3,
             hashtag: 'nephilim',
             sentence: "un pj"
+        },
+        {
+            pk: 4,
+            hashtag: 'artefact',
+            sentence: "anneau orichalque"
         }
     ]
 
     RpgImpro.document.edge = [
         {source: 1, target: 2},
-        {source: 1, target: 3}
+        {source: 1, target: 3},
+        {source: 2, target: 4}
     ]
 }

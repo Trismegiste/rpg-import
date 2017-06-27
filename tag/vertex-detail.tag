@@ -23,6 +23,16 @@
             <div class="pure-u-1-12">
                 <a href="#">+</a>
             </div>
+            <div class="pure-u-11-12">
+                <ul class="inner-vertex">
+                    <li each="{ RpgImpro.document.getVertexByTarget(vertex.pk) }">
+                        <a href="#show/{pk}">{ hashtag }</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pure-u-1-12">
+                <a href="#">+</a>
+            </div>
         </div>
     </article>
     <script>

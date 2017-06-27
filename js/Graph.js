@@ -38,3 +38,18 @@ Graph.prototype.getVertexBySource = function (pk) {
 
     return lst
 }
+
+Graph.prototype.getVertexByTarget = function (pk) {
+    var lst = []
+    for (var k in this.edge) {
+
+        if (this.edge[k].target === pk) {
+            var v = this.findVertexByPk(this.edge[k].source)
+            if (v) {
+                lst.push(v)
+            }
+        }
+    }
+
+    return lst
+}
