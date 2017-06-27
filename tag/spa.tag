@@ -38,27 +38,28 @@
 
         }
 
-        // search
-        this.onSearch = function () {
-            self.found = []
-            self.keyword = self.search.value
-                        console.log(self.keyword)
-
+        this.on('update', function () {
             var regex = new RegExp(self.keyword.trim(), 'i')
             var model = RpgImpro.document.getVertex()
+            self.found = []
             for (var k in model) {
                 var v = model[k]
                 if (regex.test('#' + v.hashtag + ' ' + v.sentence)) {
                     self.found.push(v)
                 }
             }
+        })
+
+        // search
+        this.onSearch = function () {
+            self.keyword = self.search.value
+            console.log(self.keyword)
+            self.update()
         }
 
         riot.route('/search/*', function (keyword) {
             self.keyword = keyword
-            self.update()
             console.log(self.keyword)
-            self.onSearch()
             self.update()
         })
 
