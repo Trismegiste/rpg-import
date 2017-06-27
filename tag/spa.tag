@@ -48,13 +48,14 @@
                     self.found.push(v)
                 }
             }
+            console.log('update')
         })
 
         // search
         this.onSearch = function () {
             self.keyword = self.search.value
             console.log(self.keyword)
-            self.update()
+            //self.update()
         }
 
         riot.route('/search/*', function (keyword) {
@@ -63,6 +64,10 @@
             self.update()
         })
 
+        riot.route('/expand/*', function (pk) {
+            self.selected = pk
+            self.update()
+        })
 
     </script>
 </spa>
