@@ -1,7 +1,7 @@
 <vertex>
-    <a href="#vertex/{idx}">
+    <a href="#show/{idx}">
         <article>
-            {vertex.hashtag} : {vertex.sentence}
+            <mark>{vertex.hashtag}</mark> : {vertex.sentence}
         </article>
     </a>
     <script>

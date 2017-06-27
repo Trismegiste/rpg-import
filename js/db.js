@@ -1,23 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 function init() {
     RpgImpro.document.vertex = [
         {
+            pk: 1,
             hashtag: 'scenario',
             sentence: "#templier veut tuer #nephilim"
         },
         {
+            pk: 2,
             hashtag: 'templier',
             sentence: "Manteau noir"
         },
         {
+            pk: 3,
             hashtag: 'nephilim',
             sentence: "un pj"
         }
+    ]
+
+    RpgImpro.document.edge = [
+        {source: 1, target: 2},
+        {source: 1, target: 3}
     ]
 }

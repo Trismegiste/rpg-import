@@ -11,18 +11,18 @@
                     onAdd
                 }">+</button>
     </div>
-    <div class="pure-g">
-        <div class="pure-u-1" each="{ vertex, idx in found }">
+    <div class="pure-g listing">
+        <section class="pure-u-1" each="{ vertex, idx in found }">
             <virtual if="{idx != selected}">
                 <vertex></vertex>
             </virtual>
             <virtual if="{idx == selected}">
                 <vertex-detail></vertex-detail>
             </virtual>
-        </div>
+        </section>
     </div>
     <script>
-        this.selected = null
+        this.selected = 0 // by default, first entry on the list
         this.keyword = ''
         this.found = RpgImpro.document.getVertex()
         var self = this
@@ -60,9 +60,13 @@
             self.update()
         })
 
-        riot.route('/expand/*', function (pk) {
+        riot.route('/show/*', function (pk) {
             self.selected = pk
             self.update()
+            var obj = document.getElementById('selected')
+            if (obj) {
+                window.scrollTo(0, obj.offsetTop)
+            }
         })
 
     </script>

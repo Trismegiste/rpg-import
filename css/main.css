@@ -6,3 +6,40 @@ footer {
     font-size: 60%;
     text-align: center;
 }
+
+.listing section {
+    margin-bottom: 0.6em;
+}
+
+vertex a:link, vertex a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+article mark {
+    background-color: #20FC90;
+    padding: 0 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+}
+
+vertex-detail article {
+    border: 1px solid;
+    padding: 0.6em;
+}
+
+.button-success {
+    background: #20FC90; /* this is a green */
+}
+
+.button-error {
+    background: #FC70C2; /* this is a red */
+}
+
+.button-warning {
+    background: #FFD637; /* this is an orange */
+}
+
+.button-primary {
+    background: #76D8FF;
+}
