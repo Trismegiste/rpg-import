@@ -14,7 +14,11 @@
                 <a href="#">E</a>
             </div>
             <div class="pure-u-11-12">
-                <mark each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">{ this.hashtag }</mark>
+                <ul class="outer-vertex">
+                    <li each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">
+                        <a href="#show/{pk}">{ hashtag }</a>
+                    </li>
+                </ul>
             </div>
             <div class="pure-u-1-12">
                 <a href="#">+</a>
@@ -22,6 +26,6 @@
         </div>
     </article>
     <script>
-        
+
     </script>
 </vertex-detail>

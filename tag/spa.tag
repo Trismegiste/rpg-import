@@ -12,11 +12,11 @@
                 }">+</button>
     </div>
     <div class="pure-g listing">
-        <section class="pure-u-1" each="{ vertex, idx in found }">
-            <virtual if="{idx != selected}">
+        <section class="pure-u-1" each="{ vertex in found }">
+            <virtual if="{vertex.pk != selected}">
                 <vertex></vertex>
             </virtual>
-            <virtual if="{idx == selected}">
+            <virtual if="{vertex.pk == selected}">
                 <vertex-detail></vertex-detail>
             </virtual>
         </section>
