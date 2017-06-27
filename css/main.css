@@ -7,25 +7,36 @@ footer {
     text-align: center;
 }
 
-.listing section {
+.listing section.pure-u-1 {
     margin-bottom: 0.6em;
 }
 
-vertex a:link, vertex a:visited {
+a:link, vertex a:visited {
     text-decoration: none;
     color: black;
 }
 
-article mark {
-    background-color: #20FC90;
+.hashtag {
     padding: 0 0.5em;
     -moz-border-radius: 0.5em;
     -webkit-border-radius: 0.5em;
 }
 
+article mark.hashtag {
+    background-color: #76D8FF;
+}
+
 vertex-detail article {
     border: 1px solid;
     padding: 0.6em;
+}
+
+hashtag-decorator nav {
+    display: inline;
+}
+
+hashtag-decorator nav a.hashtag {
+    background-color: #FC70C2;
 }
 
 .button-success {

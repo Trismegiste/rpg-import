@@ -2,13 +2,13 @@
     <article>
         <div class="pure-g">
             <div class="pure-u-11-12">
-                <mark>{vertex.hashtag}</mark>
+                <mark class="hashtag">{vertex.hashtag}</mark>
             </div>
             <div class="pure-u-1-12">
                 <a href="#">E</a>
             </div>
             <div class="pure-u-11-12">
-                {vertex.sentence}
+                <hashtag-decorator str="{vertex.sentence}" inner="{ vertex.pk }"></hashtag-decorator>
             </div>
             <div class="pure-u-1-12">
                 <a href="#">E</a>

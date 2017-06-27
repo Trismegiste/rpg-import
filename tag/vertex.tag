@@ -1,7 +1,8 @@
 <vertex>
     <a href="#show/{vertex.pk}">
         <article>
-            <mark>{vertex.hashtag}</mark> : {vertex.sentence}
+            <mark class="hashtag">{vertex.hashtag}</mark>
+            <hashtag-decorator str="{vertex.sentence}" inner="{vertex.pk}"></hashtag-decorator>
         </article>
     </a>
     <script>
