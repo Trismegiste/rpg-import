@@ -4,6 +4,8 @@
         <textarea name="sentence" id="sentence" class="pure-input-1" rows="3"></textarea>
     </form>
     <script>
+        var self = this
+
         this.on('mount', function () {
             var Textarea = Textcomplete.editors.Textarea
             var autocompleted = ["hashtag", 'sentence']
@@ -20,7 +22,7 @@
 
             tc[0].register([
                 {
-                    match: /(^)(\w+)$/,
+                    match: /(^)([^\s]+)$/,
                     search: function (term, callback) {
                         var repo = RpgImpro.repository.vertex
                         var found = []
@@ -62,9 +64,14 @@
                     match: /(^)([^\s]+)$/,
                     search: function (term, callback) {
                         var repo = RpgImpro.repository.vertex
+                        var filter = self.hashtag.value.trim()
+                        console.log(filter.length)
                         var found = []
                         for (var k in repo) {
                             var v = repo[k]
+                            if (filter.length && (v.hashtag !== filter)) {
+                                continue
+                            }
                             if ((v.sentence.search(term) !== -1) && (found.indexOf(v.sentence) === -1)) {
                                 found.push(v.sentence)
                             }
@@ -77,7 +84,6 @@
                     }
                 }
             ])
-
 
         })
 
