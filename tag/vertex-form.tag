@@ -9,9 +9,7 @@
             var textAreaElem = document.getElementById('sentence')
             var editor = new Textarea(textAreaElem)
             var tc = new Textcomplete(editor, {
-                dropdown: {
-                    placement: 'top'
-                }
+                dropdown: Infinity
             })
             tc.register([{
                     match: /(^|\s)#(\w+)$/,

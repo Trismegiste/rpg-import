@@ -2,7 +2,7 @@
     background-color: white;
     border: 1px solid #ddd;
     list-style: none;
-    margin: 0;
+    margin: -24px 0 0;
     padding: 0;
 }
 
@@ -25,4 +25,5 @@
     height: 18px;
     text-decoration: none;
     color: #555;
+    cursor: pointer;
 }
