@@ -11,23 +11,45 @@
             var tc = new Textcomplete(editor, {
                 dropdown: Infinity
             })
-            tc.register([{
+            tc.register([
+                {
                     match: /(^|\s)#(\w+)$/,
                     search: function (term, callback) {
+                        var repo = RpgImpro.repository.vertex
                         var found = []
-                        for (var k in RpgImpro.repository.vertex) {
-                            var v = RpgImpro.repository.vertex[k]
+                        for (var k in repo) {
+                            var v = repo[k]
                             if ((v.hashtag.search(term) !== -1) && (found.indexOf(v.hashtag) === -1)) {
                                 found.push(v.hashtag)
                             }
                         }
-                        console.log(term, found)
+
                         callback(found)
                     },
                     replace: function (value) {
                         return '$1#' + value + ' '
                     }
-                }])
+                },
+                {
+                    match: /(^)(\w+)$/,
+                    search: function (term, callback) {
+                        console.log(term)
+                        var repo = RpgImpro.repository.vertex
+                        var found = []
+                        for (var k in repo) {
+                            var v = repo[k]
+                            if ((v.sentence.search(term) !== -1) && (found.indexOf(v.sentence) === -1)) {
+                                found.push(v.sentence)
+                            }
+                        }
+
+                        callback(found)
+                    },
+                    replace: function (value) {
+                        return value
+                    }
+                }
+            ])
         })
 
     </script>
