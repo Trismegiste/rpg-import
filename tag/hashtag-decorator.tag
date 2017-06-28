@@ -3,7 +3,4 @@
         <span if="{ chunk[0] != '#' }">{chunk}</span>
         <a if="{ chunk[0] == '#' }" href="#new/{ chunk.substr(1) }/inner/{ parent.opts.inner }" class="hashtag">{chunk.substr(1)}</a>
     </nav>
-    <script>
-console.log(this.opts)
-    </script>
 </hashtag-decorator>

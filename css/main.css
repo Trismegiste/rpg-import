@@ -11,7 +11,7 @@ footer {
     margin-bottom: 0.6em;
 }
 
-a:link, vertex a:visited {
+a:link, a:visited {
     text-decoration: none;
     color: black;
 }

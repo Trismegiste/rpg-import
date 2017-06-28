@@ -1,5 +1,5 @@
 <spa>
-    <div class="pure-g">
+    <div class="pure-g" if="{ !vertexFormView }">
         <div class="pure-u-1 pure-u-md-1-2">
             <form class="pure-form" onkeyup="{
                         onSearch
@@ -7,9 +7,10 @@
                 <input type="text" class="pure-input-1" name="search" value="{ keyword }"/>
             </form>
         </div>
-        <button class="pure-button pure-u-1 pure-u-md-1-2" onclick="{
-                    onAdd
-                }">+</button>
+        <a class="pure-button pure-u-1 pure-u-md-1-2" href="#create">+</a>
+    </div>
+    <div class="pure-g" if="{ vertexFormView }" >
+        <vertex-form class="pure-u-1"></vertex-form>
     </div>
     <div class="pure-g listing">
         <section class="pure-u-1" each="{ vertex in found }">
@@ -25,6 +26,7 @@
         this.selected = 0 // by default, first entry on the list
         this.keyword = ''
         this.found = RpgImpro.document.getVertex()
+        this.vertexFormView = false
         var self = this
 
         // this to hide waiting spinner
@@ -32,11 +34,6 @@
             document.getElementById('waiting').remove()
             document.getElementById('mainapp').className = ''
         })
-
-        // add a new vertex
-        this.onAdd = function () {
-
-        }
 
         this.on('update', function () {
             var regex = new RegExp(self.keyword.trim(), 'i')
@@ -67,6 +64,11 @@
             if (obj) {
                 window.scrollTo(0, obj.offsetTop)
             }
+        })
+
+        riot.route('/create', function () {
+            self.vertexFormView = true
+            self.update()
         })
 
     </script>
