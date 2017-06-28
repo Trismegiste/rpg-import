@@ -31,7 +31,7 @@
                     }
                 },
                 {
-                    match: /(^)(\w+)$/,
+                    match: /(^)([éèêëàâäîïûüôöç\w]+)$/,
                     search: function (term, callback) {
                         console.log(term)
                         var repo = RpgImpro.repository.vertex
