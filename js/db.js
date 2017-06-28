@@ -27,4 +27,15 @@ function init() {
         {source: 1, target: 3},
         {source: 2, target: 4}
     ]
+
+    RpgImpro.repository.vertex = [
+        {
+            hashtag: 'arme',
+            sentence: 'épée'
+        },
+        {
+            hashtag: 'arme',
+            sentence: 'flingue'
+        }
+    ]
 }

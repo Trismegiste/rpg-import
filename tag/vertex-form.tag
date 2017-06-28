@@ -14,7 +14,15 @@
             tc.register([{
                     match: /(^|\s)#(\w+)$/,
                     search: function (term, callback) {
-                        callback(['aaa', 'bbb'])
+                        var found = []
+                        for (var k in RpgImpro.repository.vertex) {
+                            var v = RpgImpro.repository.vertex[k]
+                            if ((v.hashtag.search(term) !== -1) && (found.indexOf(v.hashtag) === -1)) {
+                                found.push(v.hashtag)
+                            }
+                        }
+                        console.log(term, found)
+                        callback(found)
                     },
                     replace: function (value) {
                         return '$1#' + value + ' '
