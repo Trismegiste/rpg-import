@@ -13,7 +13,7 @@
             })
             tc.register([
                 {
-                    match: /(^|\s)#(\w+)$/,
+                    match: /(^|\s)#(éèêëàâäîïùûüôöç-\w+)$/,
                     search: function (term, callback) {
                         var repo = RpgImpro.repository.vertex
                         var found = []
@@ -31,9 +31,8 @@
                     }
                 },
                 {
-                    match: /(^)([éèêëàâäîïûüôöç\w]+)$/,
+                    match: /(^)([éèêëàâäîïùûüôöç-\w]+)$/,
                     search: function (term, callback) {
-                        console.log(term)
                         var repo = RpgImpro.repository.vertex
                         var found = []
                         for (var k in repo) {
