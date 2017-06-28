@@ -35,22 +35,23 @@ hashtag-decorator nav {
     display: inline;
 }
 
+ul.edges {
+    margin: 0;
+    padding: 0;
+}
+
+ul.edges li {
+    display: inline;
+}
+
+.edges-inner a.hashtag {
+    background-color: #20FC90;
+}
+
+.edges-outer a.hashtag {
+    background-color: #FFD637;
+}
+
 hashtag-decorator nav a.hashtag {
     background-color: #FC70C2;
-}
-
-.button-success {
-    background: #20FC90; /* this is a green */
-}
-
-.button-error {
-    background: #FC70C2; /* this is a red */
-}
-
-.button-warning {
-    background: #FFD637; /* this is an orange */
-}
-
-.button-primary {
-    background: #76D8FF;
 }
