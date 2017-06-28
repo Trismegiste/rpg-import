@@ -20,7 +20,7 @@
 
             tc[0].register([
                 {
-                    match: /(^)([^\s]+)$/,
+                    match: /(^)(\w+)$/,
                     search: function (term, callback) {
                         var repo = RpgImpro.repository.vertex
                         var found = []
@@ -34,14 +34,14 @@
                         callback(found)
                     },
                     replace: function (value) {
-                        return value
+                        return value + ' '
                     }
                 }
             ])
 
             tc[1].register([
                 {
-                    match: /(^|\s)#(éèêëàâäîïùûüôöç-\w+)$/,
+                    match: /(^|\s)#([^\s]+)$/,
                     search: function (term, callback) {
                         var repo = RpgImpro.repository.vertex
                         var found = []
@@ -59,21 +59,21 @@
                     }
                 },
                 {
-                    match: /(^)([éèêëàâäîïùûüôöç-\w]+)$/,
-                            search: function (term, callback) {
-                                var repo = RpgImpro.repository.vertex
-                                var found = []
-                                for (var k in repo) {
-                                    var v = repo[k]
-                                    if ((v.sentence.search(term) !== -1) && (found.indexOf(v.sentence) === -1)) {
-                                        found.push(v.sentence)
-                                    }
-                                }
+                    match: /(^)([^\s]+)$/,
+                    search: function (term, callback) {
+                        var repo = RpgImpro.repository.vertex
+                        var found = []
+                        for (var k in repo) {
+                            var v = repo[k]
+                            if ((v.sentence.search(term) !== -1) && (found.indexOf(v.sentence) === -1)) {
+                                found.push(v.sentence)
+                            }
+                        }
 
-                                callback(found)
-                            },
+                        callback(found)
+                    },
                     replace: function (value) {
-                        return value
+                        return value + ' '
                     }
                 }
             ])
