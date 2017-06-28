@@ -31,7 +31,7 @@ vertex-detail article {
     padding: 0.6em;
 }
 
-hashtag-decorator nav {
+.sentence nav {
     display: inline;
 }
 
