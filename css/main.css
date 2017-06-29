@@ -54,4 +54,5 @@ ul.edges li {
 
 .sentence .hashtag {
     background-color: #FC70C2;
+    cursor: pointer;
 }

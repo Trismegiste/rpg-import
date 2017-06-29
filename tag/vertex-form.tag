@@ -38,6 +38,13 @@
             self.model.sentence = self.sentence.value.trim()
         }
 
+        RpgImpro.document.on('create-from-hashtag', function (hashtag, innerVertex) {
+            self.model.hashtag = hashtag
+            self.model.sentence = innerVertex
+            console.log(hashtag, innerVertex)
+            self.update()
+        })
+
         this.on('mount', function () {
             var Textarea = Textcomplete.editors.Textarea
             var autocompleted = ["hashtag", 'sentence']
