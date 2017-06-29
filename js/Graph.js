@@ -2,7 +2,7 @@
  * A digraph
  */
 Graph = function () {
-    this.vertex = []
+    this.vertex = []  // {pk:NN, hashtag:'wesh', sentence:'yo #mama'}
     this.edge = []
 }
 
@@ -14,10 +14,27 @@ Graph.prototype.findVertexByPk = function (pk) {
     }
 }
 
+Graph.prototype.hasVertex = function (obj) {
+    for (var k in this.vertex) {
+        var v = this.vertex[k]
+        if ((v.hashtag === obj.hashtag) && (v.sentence === obj.sentence)) {
+            return true
+        }
+    }
+
+    return false
+}
+
 Graph.prototype.addVertex = function (v) {
     var newPk = this.vertex.length
-    v.pk = newPk
+    v.pk = 'id-' + newPk + '-' + Math.random()
     this.vertex.push(v)
+}
+
+Graph.prototype.addUniqueVertex = function (v) {
+    if (!this.hasVertex(v)) {
+        this.addVertex(v)
+    }
 }
 
 Graph.prototype.getVertex = function () {

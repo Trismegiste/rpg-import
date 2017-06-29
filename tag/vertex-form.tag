@@ -1,15 +1,32 @@
 <vertex-form>
-    <form class="pure-form" onchange="{
+    <form class="pure-form" onsubmit="return false" onchange="{
                 onChange
             }">
-        <input type="text" placeholder="Hashtag" id="hashtag" name="hashtag" class="pure-input-1" value="{ model.hashtag }"/>
+        <textarea placeholder="Hashtag" id="hashtag" name="hashtag" class="pure-input-1" rows="1">{ model.hashtag }</textarea>
         <textarea name="sentence" id="sentence" class="pure-input-1" rows="3">{ model.sentence }</textarea>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <button class="pure-button" onclick="{
+                            onCancel
+                        }">Annuler</button>
+            </div>
+            <div class="pure-u-1-2">
+                <button class="pure-button" onclick="{
+                            onCreate
+                        }">Ajouter</button>
+            </div>
+        </div>
     </form>
     <script>
         var self = this
         this.model = {
             hashtag: '',
             sentence: ''
+        }
+
+        this.onCreate = function () {
+            RpgImpro.document.addUniqueVertex(self.model)
+            RpgImpro.repository.addUniqueVertex(self.model)
         }
 
         this.onChange = function () {
