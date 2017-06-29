@@ -27,6 +27,7 @@
         this.onCreate = function () {
             RpgImpro.document.addUniqueVertex(self.model.hashtag, self.model.sentence)
             RpgImpro.repository.addUniqueVertex(self.model.hashtag, self.model.sentence)
+            RpgImpro.document.trigger('update')
             self.model.hashtag = ''
             self.model.sentence = ''
             self.update()

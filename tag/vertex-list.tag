@@ -2,10 +2,10 @@
     <div class="pure-g">
         <div class="pure-u-1-12">S</div>
         <div class="pure-u-1-2">
-                <form class="pure-form" onkeyup="{
+            <form class="pure-form" onkeyup="{
                         onSearch
                     }">
-            <input type="text" class="pure-input-1" name="search" value="{ keyword }"/>
+                <input type="text" class="pure-input-1" name="search" value="{ keyword }"/>
             </form>
         </div>
         <div class="pure-u-1-12">X</div>
@@ -27,6 +27,10 @@
         this.keyword = ''
         this.found = RpgImpro.document.getVertex()
         var self = this
+
+        RpgImpro.document.on('update', function () {
+            self.update()
+        })
 
         this.on('update', function () {
             var regex = new RegExp(self.keyword.trim(), 'i')

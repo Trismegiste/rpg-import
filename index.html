@@ -23,6 +23,7 @@
 
         <footer>RPG Improvisation</footer>
 
+        <script src="./js/utils.js"></script>
         <script src="./js/riot+compiler.min.js"></script>
         <script src="./js/Graph.js"></script>
         <script src="./js/db.js"></script>
@@ -44,8 +45,9 @@
             }
             init()
             // Here we go
-            riot.route.start(true);
-            riot.mount('*');
+            riot.observable(RpgImpro.document)
+            riot.route.start(true)
+            riot.mount('*')
         </script>
     </body>
 </html>
