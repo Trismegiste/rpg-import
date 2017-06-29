@@ -25,8 +25,11 @@
         }
 
         this.onCreate = function () {
-            RpgImpro.document.addUniqueVertex(self.model)
-            RpgImpro.repository.addUniqueVertex(self.model)
+            RpgImpro.document.addUniqueVertex(self.model.hashtag, self.model.sentence)
+            RpgImpro.repository.addUniqueVertex(self.model.hashtag, self.model.sentence)
+            self.model.hashtag = ''
+            self.model.sentence = ''
+            self.update()
         }
 
         this.onChange = function () {

@@ -14,10 +14,10 @@ Graph.prototype.findVertexByPk = function (pk) {
     }
 }
 
-Graph.prototype.hasVertex = function (obj) {
+Graph.prototype.hasVertex = function (hashtag, sentence) {
     for (var k in this.vertex) {
         var v = this.vertex[k]
-        if ((v.hashtag === obj.hashtag) && (v.sentence === obj.sentence)) {
+        if ((v.hashtag === hashtag) && (v.sentence === sentence)) {
             return true
         }
     }
@@ -25,15 +25,15 @@ Graph.prototype.hasVertex = function (obj) {
     return false
 }
 
-Graph.prototype.addVertex = function (v) {
-    var newPk = this.vertex.length
-    v.pk = 'id-' + newPk + '-' + Math.random()
+Graph.prototype.addVertex = function (hashtag, sentence) {
+    var v = {hashtag: hashtag, sentence: sentence}
+    v.pk = hashCode(hashtag + sentence + Math.random())
     this.vertex.push(v)
 }
 
-Graph.prototype.addUniqueVertex = function (v) {
-    if (!this.hasVertex(v)) {
-        this.addVertex(v)
+Graph.prototype.addUniqueVertex = function (hashtag, sentence) {
+    if (!this.hasVertex(hashtag, sentence)) {
+        this.addVertex(hashtag, sentence)
     }
 }
 
