@@ -36,6 +36,10 @@ function init() {
         {
             hashtag: 'arme',
             sentence: 'flingue'
+        },
+        {
+            hashtag: 'artefact',
+            sentence: 'anneau'
         }
     ]
 }

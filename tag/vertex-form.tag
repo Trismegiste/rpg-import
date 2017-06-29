@@ -1,11 +1,21 @@
 <vertex-form>
-    <form class="pure-form">
-        <input type="text" placeholder="Hashtag" id="hashtag" name="hashtag" class="pure-input-1" value="{ filter }"/>
-        <textarea name="sentence" id="sentence" class="pure-input-1" rows="3"></textarea>
+    <form class="pure-form" onchange="{
+                onChange
+            }">
+        <input type="text" placeholder="Hashtag" id="hashtag" name="hashtag" class="pure-input-1" value="{ model.hashtag }"/>
+        <textarea name="sentence" id="sentence" class="pure-input-1" rows="3">{ model.sentence }</textarea>
     </form>
     <script>
         var self = this
-        this.filter = ''
+        this.model = {
+            hashtag: '',
+            sentence: ''
+        }
+
+        this.onChange = function () {
+            self.model.hashtag = self.hashtag.value.trim()
+            self.model.sentence = self.sentence.value.trim()
+        }
 
         this.on('mount', function () {
             var Textarea = Textcomplete.editors.Textarea
@@ -65,7 +75,7 @@
                     match: /(^)([^\s]+)$/,
                     search: function (term, callback) {
                         var repo = RpgImpro.repository.vertex
-                        var filter = self.hashtag.value.trim()
+                        var filter = self.model.hashtag
 
                         var found = []
                         for (var k in repo) {
@@ -84,7 +94,7 @@
                         return obj.sentence
                     },
                     replace: function (obj) {
-                        self.filter = obj.hashtag
+                        self.model.hashtag = obj.hashtag
                         self.update()
                         return obj.sentence + ' '
                     }
