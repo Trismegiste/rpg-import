@@ -14,5 +14,5 @@ function hashCode(str) {
         hash |= 0; // Convert to 32bit integer
     }
 
-    return hash
+    return (hash>>>0).toString(16)
 }

@@ -16,18 +16,24 @@
                         }">Ajouter</button>
             </div>
         </div>
+        <input type="hidden" name="inner" value="{ model.inner }"/>
     </form>
     <script>
         var self = this
         this.model = {
             hashtag: '',
-            sentence: ''
+            sentence: '',
+            inner: null
         }
 
         this.onCreate = function () {
-            RpgImpro.document.addUniqueVertex(self.model.hashtag, self.model.sentence)
+            var newPk = RpgImpro.document.addUniqueVertex(self.model.hashtag, self.model.sentence)
+            if (newPk) {
+                RpgImpro.document.addEdge(self.model.inner, newPk)
+            }
             RpgImpro.repository.addUniqueVertex(self.model.hashtag, self.model.sentence)
             RpgImpro.document.trigger('update')
+
             self.model.hashtag = ''
             self.model.sentence = ''
             self.update()
@@ -36,15 +42,19 @@
         this.onChange = function () {
             self.model.hashtag = self.hashtag.value.trim()
             self.model.sentence = self.sentence.value.trim()
+            self.model.inner = self.inner.value.trim()
         }
 
         RpgImpro.document.on('create-from-hashtag', function (hashtag, innerVertex) {
             self.model.hashtag = hashtag
-            self.model.sentence = innerVertex
-            console.log(hashtag, innerVertex)
+            self.model.inner = innerVertex
             self.update()
         })
 
+
+        //
+        // CONFIG
+        //
         this.on('mount', function () {
             var Textarea = Textcomplete.editors.Textarea
             var autocompleted = ["hashtag", 'sentence']

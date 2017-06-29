@@ -29,17 +29,30 @@ Graph.prototype.addVertex = function (hashtag, sentence) {
     var v = {hashtag: hashtag, sentence: sentence}
     v.pk = hashCode(hashtag + sentence + Math.random())
     this.vertex.push(v)
+
+    return v.pk
 }
 
 Graph.prototype.addUniqueVertex = function (hashtag, sentence) {
     if (!this.hasVertex(hashtag, sentence)) {
-        this.addVertex(hashtag, sentence)
+        return this.addVertex(hashtag, sentence)
     }
 }
 
 Graph.prototype.getVertex = function () {
     return this.vertex
 }
+
+Graph.prototype.hasEdge = function (src, tgt) {
+    for (var k in this.edge) {
+        if ((this.edge[k].source === src) && (this.edge[k].target === tgt)) {
+            return true
+        }
+    }
+
+    return false
+}
+
 
 Graph.prototype.getVertexBySource = function (pk) {
     var lst = []
@@ -69,4 +82,10 @@ Graph.prototype.getVertexByTarget = function (pk) {
     }
 
     return lst
+}
+
+Graph.prototype.addEdge = function (source, target) {
+    if (!this.hasEdge(source, target)) {
+        this.edge.push({source: source, target: target})
+    }
 }
