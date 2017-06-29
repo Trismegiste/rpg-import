@@ -4,8 +4,10 @@
         <div class="pure-u-1-2">
             <form class="pure-form" onkeyup="{
                         onSearch
-                    }">
-                <input type="text" class="pure-input-1" name="search" value="{ keyword }"/>
+                    }" onsubmit="{
+                                noSubmit
+                            }">
+                <input type="text" class="pure-input-1" name="search" value="{ keyword }" autocomplete="off"/>
             </form>
         </div>
         <div class="pure-u-1-12">X</div>
@@ -31,6 +33,12 @@
         RpgImpro.document.on('update', function () {
             self.update()
         })
+
+        this.noSubmit = function () {
+            // to make the virtual keyboard disappeard on mobile
+            self.search.blur()
+            self.onSearch()
+        }
 
         this.on('update', function () {
             var regex = new RegExp(self.keyword.trim(), 'i')
