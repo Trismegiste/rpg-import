@@ -56,6 +56,14 @@ vertex-detail header {
     margin: 0.3em 0;
 }
 
+vertex-detail header a {
+    cursor: pointer;
+}
+
+vertex-detail hashtag-decorator {
+    padding-left: 0.3em;
+}
+
 .sentence nav {
     display: inline;
 }
