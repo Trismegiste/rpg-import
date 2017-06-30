@@ -36,54 +36,66 @@
                 </ul>
             </div>
             <div class="pure-u-1-12">
-                <a href="#">+</a>
-            </div>
-            <div class="pure-u-1">
+                <a onclick="{
+                            onAddInner
+                        }">+</a>            </div>
+            <div class="pure-u-1" if="{ viewInner }">
+                <textarea name="inner" rows="1" class="pure-input-1"></textarea>
             </div>
         </div>
     </article>
     <script>
         var self = this
         this.viewOuter = false
+        this.viewInner = false
+
         this.onAddOuter = function () {
-            self.viewOuter = true
-            self.initTA(self.outer)
+            self.viewOuter = !self.viewOuter
         }
 
-        this.initTA = function (textAreaElem) {
+        this.onAddInner = function () {
+            self.viewInner = !self.viewInner
+        }
+
+        this.on('mount', function () {
             var Textarea = Textcomplete.editors.Textarea
-            var editor = [], tc = null
+            var elem = [self.outer, self.inner]
+            var editor = [], tc = []
 
-            editor = new Textarea(textAreaElem)
-            tc = new Textcomplete(editor, {
-                dropdown: Infinity
-            })
+            for (var k in elem) {
+                var textAreaElem = elem[k]
 
-            tc.register([
-                {
-                    match: /(^)([^\s]+)$/,
-                    search: function (term, callback) {
-                        var repo = RpgImpro.document.getVertex()
-                        var found = []
-                        for (var k in repo) {
-                            var v = repo[k]
-                            if (v.sentence.search(term) !== -1) {
-                                found.push(v)
+                editor[k] = new Textarea(textAreaElem)
+                tc[k] = new Textcomplete(editor[k], {
+                    dropdown: Infinity
+                })
+
+                tc[k].register([
+                    {
+                        match: /(^)([^\s]+)$/,
+                        search: function (term, callback) {
+                            var repo = RpgImpro.document.getVertex()
+                            var found = []
+                            for (var k in repo) {
+                                var v = repo[k]
+                                if (v.sentence.search(term) !== -1) {
+                                    found.push(v)
+                                }
                             }
+
+                            callback(found)
+                        },
+                        template: function (obj) {
+                            return '#' + obj.hashtag + ' ' + obj.sentence
+                        },
+                        replace: function (value) {
+                            return value.pk
                         }
-
-                        callback(found)
-                    },
-                    template: function (obj) {
-                        return '#' + obj.hashtag + ' ' + obj.sentence
-                    },
-                    replace: function (value) {
-                        return value.pk
                     }
-                }
-            ])
+                ])
+            }
 
-            tc.on('selected', function () {
+            tc[0].on('selected', function () {
                 var pk = self.outer.value
                 self.outer.value = ''
                 self.viewOuter = false
@@ -91,7 +103,14 @@
                 self.update()
             })
 
-        }
+            tc[1].on('selected', function () {
+                var pk = self.inner.value
+                self.inner.value = ''
+                self.viewInner = false
+                RpgImpro.document.addEdge(pk, self.vertex.pk)
+                self.update()
+            })
+        })
 
     </script>
 </vertex-detail>
