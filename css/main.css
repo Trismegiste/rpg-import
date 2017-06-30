@@ -60,7 +60,7 @@ ul.edges {
     padding: 0;
 }
 
-ul.edges li {
+ul.edges-inner li {
     display: inline;
 }
 

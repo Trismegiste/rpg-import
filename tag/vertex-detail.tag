@@ -14,19 +14,31 @@
                 <a href="#"><i class="icon-pencil"></i></a>
             </div>
             <div class="pure-u-11-12">
-                <ul class="edges edges-outer">
-                    <li each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">
-                        <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
-                    </li>
-                </ul>
+                <i class="icon-outer"></i>
             </div>
             <div class="pure-u-1-12">
                 <a onclick="{
                             onAddOuter
-                        }">+</a>
+                        }"><i class="icon-plus-squared"></i></a>
+            </div>
+            <div class="pure-u-1">
+                <ul class="edges edges-outer">
+                    <li each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">
+                        <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
+                        {sentence}
+                    </li>
+                </ul>
             </div>
             <div class="pure-u-1" if="{ viewOuter }">
                 <textarea name="outer" rows="1" class="pure-input-1"></textarea>
+            </div>
+            <div class="pure-u-11-12">
+                <i class="icon-inner"></i>
+            </div>
+            <div class="pure-u-1-12">
+                <a onclick="{
+                            onAddInner
+                        }"><i class="icon-plus-squared"></i></a>
             </div>
             <div class="pure-u-11-12">
                 <ul class="edges edges-inner">
@@ -35,10 +47,6 @@
                     </li>
                 </ul>
             </div>
-            <div class="pure-u-1-12">
-                <a onclick="{
-                            onAddInner
-                        }">+</a>            </div>
             <div class="pure-u-1" if="{ viewInner }">
                 <textarea name="inner" rows="1" class="pure-input-1"></textarea>
             </div>
