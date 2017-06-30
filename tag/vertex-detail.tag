@@ -107,7 +107,7 @@
                             var found = []
                             for (var k in repo) {
                                 var v = repo[k]
-                                if (v.sentence.search(term) !== -1) {
+                                if (v.sentence.search(new RegExp(term, 'i')) !== -1) {
                                     found.push(v)
                                 }
                             }
