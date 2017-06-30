@@ -1,6 +1,6 @@
 <vertex-list>
-    <div class="pure-g">
-        <div class="pure-u-1-12">S</div>
+    <div class="pure-g search-bar">
+        <div class="pure-u-1-12"><i class="icon-search"></i></div>
         <div class="pure-u-1-2">
             <form class="pure-form" onkeyup="{
                         onSearch
@@ -10,9 +10,9 @@
                 <input type="text" class="pure-input-1" name="search" value="{ keyword }" autocomplete="off"/>
             </form>
         </div>
-        <div class="pure-u-1-12">X</div>
-        <div class="pure-u-1-6">+</div>
-        <div class="pure-u-1-6">G</div>
+        <div class="pure-u-1-12"><i class="icon-cancel-squared"></i></div>
+        <div class="pure-u-1-6"><i class="icon-plus-squared"></i></div>
+        <div class="pure-u-1-6"><i class="icon-google-drive-logo"></i></div>
     </div>
     <div class="pure-g listing">
         <section class="pure-u-1" each="{ vertex in found }">

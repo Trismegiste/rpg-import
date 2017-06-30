@@ -14,6 +14,13 @@ footer {
     color: lightgray;
 }
 
+.search-bar i  {
+    font-size: 160%;
+    display: block;
+    margin-top: 0.2em;
+    text-align: center;
+}
+
 .listing section.pure-u-1 {
     margin-bottom: 0.6em;
 }
