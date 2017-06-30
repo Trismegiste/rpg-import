@@ -10,7 +10,9 @@
                 <input type="text" class="pure-input-1" name="search" value="{ keyword }" autocomplete="off"/>
             </form>
         </div>
-        <div class="pure-u-1-12"><i class="icon-cancel-squared"></i></div>
+        <div class="pure-u-1-12"><a onclick="{
+                    onReset
+                }"><i class="icon-cancel-squared"></i></a></div>
         <div class="pure-u-1-6"><a onclick="{
                     onCreate
                 }"><i class="icon-plus-squared"></i></a></div>
@@ -40,6 +42,10 @@
             // to make the virtual keyboard disappeard on mobile
             self.search.blur()
             self.onSearch()
+        }
+
+        this.onReset = function () {
+            this.keyword = ''
         }
 
         this.onCreate = function () {

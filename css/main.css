@@ -1,7 +1,3 @@
-.x-content {
-    margin: 0.3em;
-}
-
 footer {
     font-size: 60%;
     text-align: center;
@@ -29,7 +25,7 @@ footer {
 }
 
 .listing section.pure-u-1 {
-    margin-bottom: 0.6em;
+    margin-bottom: 0.8em;
 }
 
 a:link, a:visited {
@@ -58,7 +54,7 @@ article mark.hashtag {
 vertex-detail article {
     border-left: 0.3em solid;
     border-left-color: lightgray;
-    font-size: 120%;
+   /* font-size: 120%;*/
     line-height: 130%;
 }
 
