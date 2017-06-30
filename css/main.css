@@ -14,6 +14,10 @@ footer {
     color: lightgray;
 }
 
+.search-bar {
+    margin-bottom: 0.6em;
+}
+
 .search-bar i  {
     font-size: 160%;
     display: block;
@@ -31,6 +35,14 @@ footer {
 a:link, a:visited {
     text-decoration: none;
     color: black;
+}
+
+.search-bar a i {
+    cursor: pointer;
+}
+
+vertex-form form {
+    margin-bottom: 1em;
 }
 
 .hashtag {
@@ -88,4 +100,8 @@ ul.edges-inner li {
 .sentence .hashtag {
     background-color: #FC70C2;
     cursor: pointer;
+}
+
+.pure-button.button-primary {
+    background-color: #76D8FF;
 }

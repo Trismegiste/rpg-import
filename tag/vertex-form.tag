@@ -6,12 +6,12 @@
         <textarea name="sentence" id="sentence" class="pure-input-1" rows="3">{ model.sentence }</textarea>
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <button class="pure-button" onclick="{
+                <button class="pure-button pure-input-1" onclick="{
                             onCancel
                         }">Annuler</button>
             </div>
             <div class="pure-u-1-2">
-                <button class="pure-button" onclick="{
+                <button class="pure-button pure-input-1 button-primary" onclick="{
                             onCreate
                         }">Ajouter</button>
             </div>
@@ -26,6 +26,12 @@
             inner: null
         }
 
+        this.resetModel = function () {
+            self.model.hashtag = ''
+            self.model.sentence = ''
+            self.model.inner = null
+        }
+
         this.onCreate = function () {
             var newPk = RpgImpro.document.addUniqueVertex(self.model.hashtag, self.model.sentence)
             if (self.model.inner && newPk) {
@@ -34,9 +40,9 @@
             RpgImpro.repository.addUniqueVertex(self.model.hashtag, self.model.sentence)
             RpgImpro.document.trigger('update')
 
-            self.model.hashtag = ''
-            self.model.sentence = ''
-            self.update()
+            self.resetModel()
+            self.parent.viewForm = false
+            self.parent.update()
         }
 
         this.onChange = function () {
@@ -46,11 +52,17 @@
         }
 
         RpgImpro.document.on('create-from-hashtag', function (hashtag, innerVertex) {
+            self.parent.viewForm = true
             self.model.hashtag = hashtag
             self.model.inner = innerVertex
-            self.update()
+            self.parent.update()
         })
 
+        this.onCancel = function () {
+            self.parent.viewForm = false
+            self.resetModel()
+            self.parent.update()
+        }
 
         //
         // CONFIG

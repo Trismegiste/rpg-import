@@ -11,7 +11,9 @@
             </form>
         </div>
         <div class="pure-u-1-12"><i class="icon-cancel-squared"></i></div>
-        <div class="pure-u-1-6"><i class="icon-plus-squared"></i></div>
+        <div class="pure-u-1-6"><a onclick="{
+                    onCreate
+                }"><i class="icon-plus-squared"></i></a></div>
         <div class="pure-u-1-6"><i class="icon-google-drive-logo"></i></div>
     </div>
     <div class="pure-g listing">
@@ -38,6 +40,11 @@
             // to make the virtual keyboard disappeard on mobile
             self.search.blur()
             self.onSearch()
+        }
+
+        this.onCreate = function () {
+            self.parent.viewForm = true
+            self.parent.update()
         }
 
         this.on('update', function () {
