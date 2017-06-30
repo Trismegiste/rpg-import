@@ -1,4 +1,4 @@
-.content {
+.x-content {
     margin: 0.3em;
 }
 
@@ -44,11 +44,16 @@ article mark.hashtag {
 }
 
 vertex-detail article {
-    border: 1px solid;
-    padding: 0.5em 0.1em;
-    margin: 0.5em 0;
+    border-left: 0.3em solid;
+    border-left-color: lightgray;
     font-size: 120%;
     line-height: 130%;
+}
+
+vertex-detail header {
+    background-color: lightgray;
+    padding: 0.3em 0;
+    margin: 0.3em 0;
 }
 
 .sentence nav {

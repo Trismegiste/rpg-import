@@ -86,7 +86,7 @@ Graph.prototype.getVertexByTarget = function (pk) {
 
 /**
  * Add an edge
- * 
+ *
  * @param string source primary key
  * @param string target primary key
  */
@@ -95,4 +95,34 @@ Graph.prototype.addEdge = function (source, target) {
             && (!this.hasEdge(source, target))) {
         this.edge.push({source: source, target: target})
     }
+}
+
+Graph.prototype.isSource = function (v) {
+    for (var k in this.edge) {
+        if (this.edge[k].target === v.pk) {
+            return false
+        }
+    }
+
+    return true
+}
+
+Graph.prototype.isSink = function (v) {
+    for (var k in this.edge) {
+        if (this.edge[k].source === v.pk) {
+            return false
+        }
+    }
+
+    return true
+}
+
+Graph.prototype.isOrphan = function (v) {
+    for (var k in this.edge) {
+        if ((this.edge[k].source === v.pk) || (this.edge[k].target === v.pk)) {
+            return false
+        }
+    }
+
+    return true
 }

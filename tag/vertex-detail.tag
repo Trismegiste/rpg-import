@@ -1,18 +1,25 @@
 <vertex-detail id="selected">
     <article>
-        <div class="pure-g">
-            <div class="pure-u-11-12">
+        <header class="pure-g">
+            <div class="pure-u-5-6">
                 <mark class="hashtag">{vertex.hashtag}</mark>
+            </div>
+            <div class="pure-u-1-12">
+                <a href="#" if="{ RpgImpro.document.isOrphan(vertex) }"><i class="icon-cancel-squared"></i></a>
             </div>
             <div class="pure-u-1-12">
                 <a href="#"><i class="icon-pencil"></i></a>
             </div>
+        </header>
+        <div class="pure-g">
             <div class="pure-u-11-12">
                 <hashtag-decorator str="{vertex.sentence}" inner="{ vertex.pk }"></hashtag-decorator>
             </div>
             <div class="pure-u-1-12">
                 <a href="#"><i class="icon-pencil"></i></a>
             </div>
+        </div>
+        <header class="pure-g">
             <div class="pure-u-11-12">
                 <i class="icon-outer"></i>
             </div>
@@ -21,6 +28,8 @@
                             onAddOuter
                         }"><i class="icon-plus-squared"></i></a>
             </div>
+        </header>
+        <div class="pure-g">
             <div class="pure-u-1">
                 <ul class="edges edges-outer">
                     <li each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">
@@ -30,8 +39,12 @@
                 </ul>
             </div>
             <div class="pure-u-1" if="{ viewOuter }">
-                <textarea name="outer" rows="1" class="pure-input-1"></textarea>
+                <form class="pure-form">
+                    <textarea name="outer" rows="1" class="pure-input-1"></textarea>
+                </form>
             </div>
+        </div>
+        <header class="pure-g">
             <div class="pure-u-11-12">
                 <i class="icon-inner"></i>
             </div>
@@ -40,6 +53,8 @@
                             onAddInner
                         }"><i class="icon-plus-squared"></i></a>
             </div>
+        </header>
+        <div class="pure-g">
             <div class="pure-u-11-12">
                 <ul class="edges edges-inner">
                     <li each="{ RpgImpro.document.getVertexByTarget(vertex.pk) }">
@@ -48,7 +63,9 @@
                 </ul>
             </div>
             <div class="pure-u-1" if="{ viewInner }">
-                <textarea name="inner" rows="1" class="pure-input-1"></textarea>
+                <form class="pure-form">
+                    <textarea name="inner" rows="1" class="pure-input-1"></textarea>
+                </form>
             </div>
         </div>
     </article>
