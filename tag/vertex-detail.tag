@@ -54,7 +54,6 @@
             var Textarea = Textcomplete.editors.Textarea
             var editor = [], tc = null
 
-            console.log(self.vertex.pk, textAreaElem)
             editor = new Textarea(textAreaElem)
             tc = new Textcomplete(editor, {
                 dropdown: Infinity
@@ -79,10 +78,18 @@
                         return '#' + obj.hashtag + ' ' + obj.sentence
                     },
                     replace: function (value) {
-                        return value.sentence + ' '
+                        return value.pk
                     }
                 }
             ])
+
+            tc.on('selected', function () {
+                var pk = self.outer.value
+                self.outer.value = ''
+                self.viewOuter = false
+                RpgImpro.document.addEdge(self.vertex.pk, pk)
+                self.update()
+            })
 
         }
 
