@@ -5,7 +5,9 @@
                 <mark class="hashtag">{vertex.hashtag}</mark>
             </div>
             <div class="pure-u-1-6">
-                <a href="#" if="{ isOrphan(vertex) }"><i class="icon-cancel-squared"></i></a>
+                <a if="{ isOrphan(vertex) }" onclick="{
+                            onDelete
+                        }"><i class="icon-cancel-squared"></i></a>
             </div>
             <div class="pure-u-1-12">
                 <a href="#"><i class="icon-pencil"></i></a>
@@ -84,6 +86,10 @@
 
         this.isOrphan = function (v) {
             return RpgImpro.document.isOrphan(v)
+        }
+
+        this.onDelete = function () {
+            RpgImpro.document.remove(self.vertex)
         }
 
         this.on('mount', function () {

@@ -33,7 +33,13 @@
         }
 
         this.onCreate = function () {
+            // validation
+            if (!self.model.hashtag.length || !self.model.sentence.length) {
+                return;
+            }
+
             var newPk = RpgImpro.document.addUniqueVertex(self.model.hashtag, self.model.sentence)
+            // edges
             if (self.model.inner && newPk) {
                 RpgImpro.document.addEdge(self.model.inner, newPk)
             }

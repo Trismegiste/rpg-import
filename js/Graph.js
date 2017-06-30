@@ -127,3 +127,18 @@ Graph.prototype.isOrphan = function (v) {
 
     return true
 }
+
+Graph.prototype.remove = function (v) {
+    for (var k in this.edge) {
+        var e = this.edge[k]
+        if ((e.source === v.pk) || (e.target === v.pk)) {
+            this.edge.splice(k, 1)
+        }
+    }
+    // delete
+    for (var k in this.vertex) {
+        if (this.vertex[k].pk === v.pk) {
+            this.vertex.splice(k, 1)
+        }
+    }
+}
