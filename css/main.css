@@ -18,7 +18,10 @@ footer {
     font-size: 160%;
     display: block;
     margin-top: 0.2em;
-    text-align: center;
+}
+
+.search-bar i.icon-plus-squared , .search-bar i.icon-google-drive-logo {
+    text-align: right;
 }
 
 .listing section.pure-u-1 {
@@ -42,7 +45,10 @@ article mark.hashtag {
 
 vertex-detail article {
     border: 1px solid;
-    padding: 0.6em;
+    padding: 0.5em 0.1em;
+    margin: 0.5em 0;
+    font-size: 120%;
+    line-height: 130%;
 }
 
 .sentence nav {

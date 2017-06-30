@@ -5,13 +5,13 @@
                 <mark class="hashtag">{vertex.hashtag}</mark>
             </div>
             <div class="pure-u-1-12">
-                <a href="#">E</a>
+                <a href="#"><i class="icon-pencil"></i></a>
             </div>
             <div class="pure-u-11-12">
                 <hashtag-decorator str="{vertex.sentence}" inner="{ vertex.pk }"></hashtag-decorator>
             </div>
             <div class="pure-u-1-12">
-                <a href="#">E</a>
+                <a href="#"><i class="icon-pencil"></i></a>
             </div>
             <div class="pure-u-11-12">
                 <ul class="edges edges-outer">
