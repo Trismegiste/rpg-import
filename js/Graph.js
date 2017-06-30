@@ -119,7 +119,8 @@ Graph.prototype.isSink = function (v) {
 
 Graph.prototype.isOrphan = function (v) {
     for (var k in this.edge) {
-        if ((this.edge[k].source === v.pk) || (this.edge[k].target === v.pk)) {
+        var e = this.edge[k]
+        if ((e.source === v.pk) || (e.target === v.pk)) {
             return false
         }
     }

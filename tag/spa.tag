@@ -12,6 +12,5 @@
             document.getElementById('mainapp').className = ''
         })
 
-
     </script>
 </spa>

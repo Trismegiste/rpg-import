@@ -1,11 +1,11 @@
 <vertex-detail id="selected">
     <article>
         <header class="pure-g">
-            <div class="pure-u-5-6">
+            <div class="pure-u-3-4">
                 <mark class="hashtag">{vertex.hashtag}</mark>
             </div>
-            <div class="pure-u-1-12">
-                <a href="#" if="{ RpgImpro.document.isOrphan(vertex) }"><i class="icon-cancel-squared"></i></a>
+            <div class="pure-u-1-6">
+                <a href="#" if="{ isOrphan(vertex) }"><i class="icon-cancel-squared"></i></a>
             </div>
             <div class="pure-u-1-12">
                 <a href="#"><i class="icon-pencil"></i></a>
@@ -39,7 +39,7 @@
                 </ul>
             </div>
             <div class="pure-u-1" if="{ viewOuter }">
-                <form class="pure-form">
+                <form class="pure-form" onsubmit="return false">
                     <textarea name="outer" rows="1" class="pure-input-1"></textarea>
                 </form>
             </div>
@@ -63,7 +63,7 @@
                 </ul>
             </div>
             <div class="pure-u-1" if="{ viewInner }">
-                <form class="pure-form">
+                <form class="pure-form" onsubmit="return false">
                     <textarea name="inner" rows="1" class="pure-input-1"></textarea>
                 </form>
             </div>
@@ -80,6 +80,10 @@
 
         this.onAddInner = function () {
             self.viewInner = !self.viewInner
+        }
+
+        this.isOrphan = function (v) {
+            return RpgImpro.document.isOrphan(v)
         }
 
         this.on('mount', function () {

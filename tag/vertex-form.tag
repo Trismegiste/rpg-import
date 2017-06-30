@@ -28,7 +28,7 @@
 
         this.onCreate = function () {
             var newPk = RpgImpro.document.addUniqueVertex(self.model.hashtag, self.model.sentence)
-            if (newPk) {
+            if (self.model.inner && newPk) {
                 RpgImpro.document.addEdge(self.model.inner, newPk)
             }
             RpgImpro.repository.addUniqueVertex(self.model.hashtag, self.model.sentence)
