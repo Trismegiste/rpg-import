@@ -26,7 +26,7 @@
                         }">+</a>
             </div>
             <div class="pure-u-1" if="{ viewOuter }">
-                <textarea name="outer-{vertex.pk}" id="outer-{vertex.pk}" rows="1" class="pure-input-1"></textarea>
+                <textarea name="outer" rows="1" class="pure-input-1"></textarea>
             </div>
             <div class="pure-u-11-12">
                 <ul class="edges edges-inner">
@@ -39,7 +39,6 @@
                 <a href="#">+</a>
             </div>
             <div class="pure-u-1">
-                <textarea name="inner" id="inner-{vertex.pk}" rows="1"></textarea>
             </div>
         </div>
     </article>
@@ -48,13 +47,12 @@
         this.viewOuter = false
         this.onAddOuter = function () {
             self.viewOuter = true
-            self.initTA('outer-' + self.vertex.pk)
+            self.initTA(self.outer)
         }
 
-        this.initTA = function (key) {
+        this.initTA = function (textAreaElem) {
             var Textarea = Textcomplete.editors.Textarea
             var editor = [], tc = null
-            var textAreaElem = self[key]
 
             console.log(self.vertex.pk, textAreaElem)
             editor = new Textarea(textAreaElem)
