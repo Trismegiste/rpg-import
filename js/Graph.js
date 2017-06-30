@@ -84,8 +84,14 @@ Graph.prototype.getVertexByTarget = function (pk) {
     return lst
 }
 
+/**
+ * Add an edge
+ * 
+ * @param string source primary key
+ * @param string target primary key
+ */
 Graph.prototype.addEdge = function (source, target) {
-    if ((source.pk !== target.pk)
+    if ((source !== target)
             && (!this.hasEdge(source, target))) {
         this.edge.push({source: source, target: target})
     }
