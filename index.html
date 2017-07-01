@@ -42,17 +42,41 @@
         <script src="./tag/inner-edge.tag" type="riot/tag"></script>
         <script src="./tag/google-drive.tag" type="riot/tag"></script>
 
+        <script src="./js/GoogleDrive.js"></script>
+        <script src="./js/icon-google-drive.js"></script>
+
         <script>
+            var cloudClient = new GoogleDrive({
+                clientId: '374977961173-5novsbmqqspuvqr0s54jjocimluvos64.apps.googleusercontent.com',
+                appId: '374977961173',
+                apiKey: 'AIzaSyDgilBkA3oUaSyczUAHLmK41IqehCbzpqI'
+            })
+            cloudClient.setIcon(googleDriveThumbnail)
+
             // container for this SPA
             var RpgImpro = {
                 repository: new Graph(),
                 document: new Graph()
             }
             init()
+
+            function handleClientLoad() {
+                cloudClient.connect()
+                        .then(function () {
+                            cloudClient.trigger('connected')
+                        })
+            }
             // Here we go
             riot.observable(RpgImpro.document)
             riot.route.start(true)
             riot.mount('*')
+        </script>
+
+        <script async defer src="https://apis.google.com/js/api.js"
+                onload="this.onload = function () {
+                };
+                handleClientLoad()"
+                onreadystatechange="if (this.readyState === 'complete') this.onload()">
         </script>
     </body>
 </html>
