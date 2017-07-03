@@ -119,5 +119,6 @@ vertex-detail hashtag-decorator {
     background-color: #FFD637;
 }
 
-
-
+.edges-outer i, .edges-inner i {
+    color: #bbb;
+}
