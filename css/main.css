@@ -86,20 +86,33 @@ vertex-detail header a {
 
 vertex-detail hashtag-decorator {
     padding-left: 0.3em;
-    padding-bottom: 0.6em;
+    display: block;
+    margin-bottom: 0.6em;
 }
 
-ul.edges {
+.edge {
+    margin-bottom: 0.3em;
+}
+
+.edges-inner {
+    margin-bottom: 0.3em;
+}
+
+.edges-inner ul {
     margin: 0;
     padding: 0;
 }
 
-ul.edges-inner li {
+.edges-inner li {
     display: inline;
 }
 
 .edges-inner a.hashtag {
     background-color: #20FC90;
+}
+
+.edges-outer {
+    margin-bottom: 0.3em;
 }
 
 .edges-outer a.hashtag {

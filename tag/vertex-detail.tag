@@ -21,53 +21,64 @@
                 <a href="#"><i class="icon-pencil"></i></a>
             </div>
         </div>
+        <!-- outer -->
         <div class="pure-g">
-            <div class="pure-u-11-12">
-                <i class="icon-outer"></i>
-            </div>
-            <div class="pure-u-1-12">
-                <a onclick="{
-                            onAddOuter
-                        }"><i class="icon-plus-squared"></i></a>
+            <div class="pure-u-1-5"></div>
+            <div class="pure-u-4-5">
+                <div class="pure-g edges-outer">
+                    <div class="pure-u-11-12">
+                        <i class="icon-outer"></i>
+                    </div>
+                    <div class="pure-u-1-12">
+                        <a onclick="{
+                                    onAddOuter
+                                }"><i class="icon-plus-squared"></i></a>
+                    </div>
+                    <virtual each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">
+                        <div class="pure-u-11-12 edge">
+                            <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
+                            {sentence}
+                        </div>
+                        <div class="pure-u-1-12">
+                            <a onclick="{
+                                        onRemoveEdge
+                                    }"><i class="icon-cancel-squared"></i></a>
+                        </div>
+                    </virtual>
+                    <div class="pure-u-1" if="{ viewOuter }">
+                        <form class="pure-form" onsubmit="return false">
+                            <textarea name="outer" rows="1" class="pure-input-1"></textarea>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- inner -->
         <div class="pure-g">
-            <div class="pure-u-1">
-                <ul class="edges edges-outer">
-                    <li each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">
-                        <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
-                        {sentence}
-                    </li>
-                </ul>
-            </div>
-            <div class="pure-u-1" if="{ viewOuter }">
-                <form class="pure-form" onsubmit="return false">
-                    <textarea name="outer" rows="1" class="pure-input-1"></textarea>
-                </form>
-            </div>
-        </div>
-        <div class="pure-g">
-            <div class="pure-u-11-12">
-                <i class="icon-inner"></i>
-            </div>
-            <div class="pure-u-1-12">
-                <a onclick="{
-                            onAddInner
-                        }"><i class="icon-plus-squared"></i></a>
-            </div>
-        </div>
-        <div class="pure-g">
-            <div class="pure-u-11-12">
-                <ul class="edges edges-inner">
-                    <li each="{ RpgImpro.document.getVertexByTarget(vertex.pk) }">
-                        <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="pure-u-1" if="{ viewInner }">
-                <form class="pure-form" onsubmit="return false">
-                    <textarea name="inner" rows="1" class="pure-input-1"></textarea>
-                </form>
+            <div class="pure-u-1-5"></div>
+            <div class="pure-u-4-5">
+                <div class="pure-g edges-inner">
+                    <div class="pure-u-11-12">
+                        <i class="icon-inner"></i>
+                    </div>
+                    <div class="pure-u-1-12">
+                        <a onclick="{
+                                    onAddInner
+                                }"><i class="icon-plus-squared"></i></a>
+                    </div>
+                    <div class="pure-u-1 edge">
+                        <ul>
+                            <li each="{ RpgImpro.document.getVertexByTarget(vertex.pk) }">
+                                <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pure-u-1" if="{ viewInner }">
+                        <form class="pure-form" onsubmit="return false">
+                            <textarea name="inner" rows="1" class="pure-input-1"></textarea>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </article>
