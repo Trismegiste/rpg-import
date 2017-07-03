@@ -10,6 +10,7 @@ footer {
     color: lightgray;
 }
 
+/* search bar */
 .search-bar {
     margin-bottom: 0.6em;
 }
@@ -24,10 +25,6 @@ footer {
     text-align: right;
 }
 
-.listing section.pure-u-1 {
-    margin-bottom: 0.8em;
-}
-
 a:link, a:visited {
     text-decoration: none;
     color: black;
@@ -37,10 +34,16 @@ a:link, a:visited {
     cursor: pointer;
 }
 
+/* form */
 vertex-form form {
     margin-bottom: 1em;
 }
 
+.pure-button.button-primary {
+    background-color: #76D8FF;
+}
+
+/* hashtag decoration */
 .hashtag {
     padding: 0 0.5em;
     -moz-border-radius: 0.5em;
@@ -51,17 +54,30 @@ article mark.hashtag {
     background-color: #76D8FF;
 }
 
-vertex-detail article {
-    border-left: 0.3em solid;
-    border-left-color: lightgray;
-   /* font-size: 120%;*/
-    line-height: 130%;
+.sentence nav {
+    display: inline;
 }
 
+.sentence .hashtag {
+    background-color: #FC70C2;
+    cursor: pointer;
+}
+
+/* listing */
+ul.vertex {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.vertex > li {
+    margin-bottom: 0.6em;
+}
+
+/* vertex detail */
 vertex-detail header {
-    background-color: lightgray;
+    background-color: #76D8FF;
     padding: 0.3em 0;
-    margin: 0.3em 0;
+    margin-bottom: 0.6em;
 }
 
 vertex-detail header a {
@@ -70,10 +86,7 @@ vertex-detail header a {
 
 vertex-detail hashtag-decorator {
     padding-left: 0.3em;
-}
-
-.sentence nav {
-    display: inline;
+    padding-bottom: 0.6em;
 }
 
 ul.edges {
@@ -93,11 +106,5 @@ ul.edges-inner li {
     background-color: #FFD637;
 }
 
-.sentence .hashtag {
-    background-color: #FC70C2;
-    cursor: pointer;
-}
 
-.pure-button.button-primary {
-    background-color: #76D8FF;
-}
+

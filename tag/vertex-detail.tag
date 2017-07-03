@@ -21,7 +21,7 @@
                 <a href="#"><i class="icon-pencil"></i></a>
             </div>
         </div>
-        <header class="pure-g">
+        <div class="pure-g">
             <div class="pure-u-11-12">
                 <i class="icon-outer"></i>
             </div>
@@ -30,7 +30,7 @@
                             onAddOuter
                         }"><i class="icon-plus-squared"></i></a>
             </div>
-        </header>
+        </div>
         <div class="pure-g">
             <div class="pure-u-1">
                 <ul class="edges edges-outer">
@@ -46,7 +46,7 @@
                 </form>
             </div>
         </div>
-        <header class="pure-g">
+        <div class="pure-g">
             <div class="pure-u-11-12">
                 <i class="icon-inner"></i>
             </div>
@@ -55,7 +55,7 @@
                             onAddInner
                         }"><i class="icon-plus-squared"></i></a>
             </div>
-        </header>
+        </div>
         <div class="pure-g">
             <div class="pure-u-11-12">
                 <ul class="edges edges-inner">

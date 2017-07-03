@@ -1,9 +1,11 @@
 <hashtag-decorator class="sentence">
-    <nav each="{ chunk in opts.str.split(' ') }">
-        <span if="{ chunk[0] != '#' }">{chunk}</span>
-        <a if="{ chunk[0] == '#' }" onclick="{
-                    parent.onInstantiate
-                }" class ="hashtag">{chunk.substr(1)}</a>
+    <nav>
+        <virtual each="{ chunk in opts.str.split(' ') }">
+            <span if="{ chunk[0] != '#' }">{chunk}</span>
+            <a if="{ chunk[0] == '#' }" onclick="{
+                        parent.onInstantiate
+                    }" class ="hashtag">{chunk.substr(1)}</a>
+        </virtual>
     </nav>
     <script>
         var self = this
