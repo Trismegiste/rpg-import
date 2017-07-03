@@ -41,7 +41,7 @@
                         </div>
                         <div class="pure-u-1-12">
                             <a onclick="{
-                                        onRemoveEdge
+                                        parent.onRemoveEdge
                                     }"><i class="icon-cancel-squared"></i></a>
                         </div>
                     </virtual>
@@ -101,6 +101,10 @@
 
         this.onDelete = function () {
             RpgImpro.document.remove(self.vertex)
+        }
+
+        this.onRemoveEdge = function (e) {
+            RpgImpro.document.cutEdge(self.vertex.pk, e.item.pk)
         }
 
         this.on('mount', function () {

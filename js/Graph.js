@@ -142,3 +142,12 @@ Graph.prototype.remove = function (v) {
         }
     }
 }
+
+Graph.prototype.cutEdge = function (src, tgt) {
+    for (var k in this.edge) {
+        var e = this.edge[k]
+        if ((e.source === src) || (e.target === tgt)) {
+            this.edge.splice(k, 1)
+        }
+    }
+}

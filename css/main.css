@@ -80,7 +80,7 @@ vertex-detail header {
     margin-bottom: 0.6em;
 }
 
-vertex-detail header a {
+vertex-detail a {
     cursor: pointer;
 }
 
