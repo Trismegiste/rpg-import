@@ -76,10 +76,7 @@
         riot.route('/show/*', function (pk) {
             self.selected = pk
             self.update()
-            var obj = document.getElementById('selected')
-            if (obj) {
-                window.scrollTo(0, obj.offsetTop)
-            }
+            scrollTo('selected')
         })
 
     </script>

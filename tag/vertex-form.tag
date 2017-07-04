@@ -1,5 +1,5 @@
 <vertex-form>
-    <form class="pure-form" onsubmit="return false" onchange="{
+    <form id="create-form" class="pure-form" onsubmit="return false" onchange="{
                 onChange
             }">
         <textarea placeholder="Hashtag" id="hashtag" name="hashtag" class="pure-input-1" rows="1">{ model.hashtag }</textarea>
@@ -49,6 +49,7 @@
             self.resetModel()
             self.parent.viewForm = false
             self.parent.update()
+            scrollTo('selected')
         }
 
         this.onChange = function () {
@@ -62,12 +63,14 @@
             self.model.hashtag = hashtag
             self.model.inner = innerVertex
             self.parent.update()
+            scrollTo('create-form')
         })
 
         this.onCancel = function () {
             self.parent.viewForm = false
             self.resetModel()
             self.parent.update()
+            scrollTo('selected')
         }
 
         //
