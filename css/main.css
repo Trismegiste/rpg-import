@@ -79,6 +79,10 @@ vertex-detail a {
     cursor: pointer;
 }
 
+vertex-detail a i {
+    color: #bbb;
+}
+
 vertex-detail hashtag-decorator {
     padding-left: 0.3em;
     display: block;
@@ -112,8 +116,4 @@ vertex-detail hashtag-decorator {
 
 .edges-outer a.hashtag {
     background-color: #FFD637;
-}
-
-.edges-outer i, .edges-inner i {
-    color: #bbb;
 }
