@@ -21,7 +21,7 @@
                 <form class="pure-form" onsubmit="{
                             onSubmit
                         }">
-                    <textarea class="pure-input-1" name="entry">{ vertex.sentence }</textarea>
+                    <textarea class="pure-input-1" name="entry" rows="3">{ vertex.sentence }</textarea>
                 </form>
             </div>
             <div class="pure-u-1-12">
