@@ -64,12 +64,7 @@ article mark.hashtag {
 }
 
 /* listing */
-ul.vertex {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-ul.vertex > li {
+.vertex {
     margin-bottom: 0.6em;
 }
 

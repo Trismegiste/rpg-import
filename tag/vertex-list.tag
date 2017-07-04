@@ -18,16 +18,14 @@
                 }"><i class="icon-plus-squared"></i></a></div>
         <div class="pure-u-1-6"><i class="icon-google-drive-logo"></i></div>
     </div>
-    <ul class="vertex">
-        <li each="{ vertex in found }">
-            <virtual if="{vertex.pk != selected}">
-                <vertex></vertex>
-            </virtual>
-            <virtual if="{vertex.pk == selected}">
-                <vertex-detail></vertex-detail>
-            </virtual>
-        </li>
-    </ul>
+    <div class="vertex" each="{ vertex in found }">
+        <virtual if="{vertex.pk != selected}">
+            <vertex></vertex>
+        </virtual>
+        <virtual if="{vertex.pk == selected}">
+            <vertex-detail></vertex-detail>
+        </virtual>
+    </div>
     <script>
         this.selected = 0 // by default, first entry on the list
         this.keyword = ''
