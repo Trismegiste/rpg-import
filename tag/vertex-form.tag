@@ -49,7 +49,7 @@
             self.resetModel()
             self.parent.viewForm = false
             self.parent.update()
-            scrollTo('selected')
+            scrollToElement('selected')
         }
 
         this.onChange = function () {
@@ -63,14 +63,14 @@
             self.model.hashtag = hashtag
             self.model.inner = innerVertex
             self.parent.update()
-            scrollTo('create-form')
+            scrollToElement('create-form')
         })
 
         this.onCancel = function () {
             self.parent.viewForm = false
             self.resetModel()
             self.parent.update()
-            scrollTo('selected')
+            scrollToElement('selected')
         }
 
         //

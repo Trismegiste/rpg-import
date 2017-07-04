@@ -17,7 +17,7 @@ function hashCode(str) {
     return (hash >>> 0).toString(16)
 }
 
-function scrollTo(id) {
+function scrollToElement(id) {
     var obj = document.getElementById(id)
     if (obj) {
         window.scrollTo(0, obj.offsetTop)

@@ -76,7 +76,7 @@
         riot.route('/show/*', function (pk) {
             self.selected = pk
             self.update()
-            scrollTo('selected')
+            scrollToElement('selected')
         })
 
     </script>
