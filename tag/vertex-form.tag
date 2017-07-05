@@ -3,7 +3,7 @@
                 onChange
             }">
         <textarea placeholder="Hashtag" id="hashtag" name="hashtag" class="pure-input-1" rows="1">{ model.hashtag }</textarea>
-        <textarea name="sentence" id="sentence" class="pure-input-1" rows="3">{ model.sentence }</textarea>
+        <textarea name="sentence" id="sentence" class="pure-input-1" rows="3" placeholder="Relation">{ model.sentence }</textarea>
         <div class="pure-g">
             <div class="pure-u-1-2">
                 <button class="pure-button pure-input-1" onclick="{

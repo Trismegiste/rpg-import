@@ -19,6 +19,7 @@ footer {
     font-size: 160%;
     display: block;
     margin-top: 0.2em;
+    color: #bbb;
 }
 
 .search-bar i.icon-plus-squared , .search-bar i.icon-google-drive-logo {
@@ -64,8 +65,8 @@ article mark.hashtag {
 }
 
 /* listing */
-.vertex {
-    margin-bottom: 0.6em;
+.vertex > div {
+    margin: 0.3em;
 }
 
 /* vertex detail */
