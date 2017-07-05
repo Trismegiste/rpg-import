@@ -1,49 +1,47 @@
 <vertex-detail id="selected">
-    <article>
-        <header class="pure-g">
-            <div class="pure-u-3-4">
-                <mark class="hashtag">{vertex.hashtag}</mark>
-            </div>
-            <div class="pure-u-1-6">
-                <a if="{ isOrphan(vertex) }" onclick="{
-                            onDelete
-                        }"><i class="icon-cancel-squared"></i></a>
-            </div>
-            <div class="pure-u-1-12">
-                <a href="#" onclick="{
-                            onEdit
-                        }"><i class="icon-pencil"></i></a>
-            </div>
-        </header>
-        <div class="pure-g" if="{ !isEditing }">
-            <div class="pure-u-1">
-                <hashtag-decorator str="{vertex.sentence}" inner="{ vertex.pk }"></hashtag-decorator>
-            </div>
+    <header class="pure-g">
+        <div class="pure-u-3-4">
+            <mark class="hashtag">{vertex.hashtag}</mark>
         </div>
-        <div class="pure-g" if="{ isEditing }">
-            <div class="pure-u-1">
-                <form class="pure-form" onsubmit="{
-                            onSubmit
-                        }">
-                    <textarea class="pure-input-1" name="sentence" rows="3">{ vertex.sentence }</textarea>
-                    <div class="pure-g">
-                        <div class="pure-u-1-2">
-                            <button class="pure-button pure-input-1" onclick="{
-                                        onCancel
-                                    }">Annuler</button>
-                        </div>
-                        <div class="pure-u-1-2">
-                            <button class="pure-button pure-input-1 button-primary" onclick="{
-                                        onSubmit
-                                    }">Modifier</button>
-                        </div>
+        <div class="pure-u-1-6">
+            <a if="{ isOrphan(vertex) }" onclick="{
+                        onDelete
+                    }"><i class="icon-cancel-squared"></i></a>
+        </div>
+        <div class="pure-u-1-12">
+            <a href="#" onclick="{
+                        onEdit
+                    }"><i class="icon-pencil"></i></a>
+        </div>
+    </header>
+    <div class="pure-g" if="{ !isEditing }">
+        <div class="pure-u-1">
+            <hashtag-decorator str="{vertex.sentence}" inner="{ vertex.pk }"></hashtag-decorator>
+        </div>
+    </div>
+    <div class="pure-g" if="{ isEditing }">
+        <div class="pure-u-1">
+            <form class="pure-form" onsubmit="{
+                        onSubmit
+                    }">
+                <textarea class="pure-input-1" name="sentence" rows="3">{ vertex.sentence }</textarea>
+                <div class="pure-g">
+                    <div class="pure-u-1-2">
+                        <button class="pure-button pure-input-1" onclick="{
+                                    onCancel
+                                }">Annuler</button>
                     </div>
-                </form>
-            </div>
+                    <div class="pure-u-1-2">
+                        <button class="pure-button pure-input-1 button-primary" onclick="{
+                                    onSubmit
+                                }">Modifier</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <outer-edge></outer-edge>
-        <inner-edge></inner-edge>
-    </article>
+    </div>
+    <outer-edge></outer-edge>
+    <inner-edge></inner-edge>
 
     <script>
         var self = this
