@@ -16,7 +16,9 @@
         <div class="pure-u-1-6"><a onclick="{
                     onCreate
                 }"><i class="icon-plus-squared"></i></a></div>
-        <div class="pure-u-1-6"><i class="icon-google-drive-logo"></i></div>
+        <div class="pure-u-1-6"><a onclick="{
+                    onGDrive
+                }"><i class="icon-google-drive-logo"></i></a></div>
     </div>
     <div class="pure-g">
         <div class="vertex pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4" each="{ vertex in found }">
@@ -50,6 +52,11 @@
 
         this.onCreate = function () {
             self.parent.viewForm = true
+            self.parent.update()
+        }
+
+        this.onGDrive = function () {
+            self.parent.cloud = !self.parent.cloud
             self.parent.update()
         }
 
