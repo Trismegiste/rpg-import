@@ -19,7 +19,7 @@
         <div class="pure-u-1-6"><i class="icon-google-drive-logo"></i></div>
     </div>
     <div class="pure-g">
-        <div class="vertex pure-u-1 pure-u-md-1-2" each="{ vertex in found }">
+        <div class="vertex pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4" each="{ vertex in found }">
             <div if="{vertex.pk != selected}">
                 <vertex></vertex>
             </div>
