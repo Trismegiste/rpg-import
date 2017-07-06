@@ -1,8 +1,7 @@
 <google-drive>
-    <div>
-        LOL
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-xl-1-4">
+            <google-drive-repo-save></google-drive-repo-save>
+        </div>
     </div>
-    <script>
-
-    </script>
 </google-drive>

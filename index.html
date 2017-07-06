@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./css/autocomplete.css"/>
         <link rel="stylesheet" href="./css/fontello.css"/>
         <link rel="stylesheet" href="./css/animation.css"/>
+        <link rel="stylesheet" href="./css/toasts.css"/>
         <link rel="apple-touch-icon-precomposed" href="app.jpg">
         <link rel="icon" href="app.png">
     </head>
@@ -20,6 +21,7 @@
                     <i class="icon-spinner animate-spin"></i>
                 </div>
             </div>
+            <rg-toasts></rg-toasts>
             <spa id="mainapp" class="hidden"></spa>
         </div>
 
@@ -27,6 +29,8 @@
 
         <script src="./js/utils.js"></script>
         <script src="./js/riot+compiler.min.js"></script>
+        <script src="./js/rg-toasts.js"></script>
+        <script src="./js/toasty-mixin.js"></script>
         <script src="./js/Graph.js"></script>
         <script src="./js/db.js"></script>
         <script src="./js/textcomplete.min.js"></script>
@@ -41,6 +45,7 @@
         <script src="./tag/outer-edge.tag" type="riot/tag"></script>
         <script src="./tag/inner-edge.tag" type="riot/tag"></script>
         <script src="./tag/google-drive.tag" type="riot/tag"></script>
+        <script src="./tag/google-drive-repo-save.tag" type="riot/tag"></script>
 
         <script src="./js/GoogleDrive.js"></script>
         <script src="./js/icon-google-drive.js"></script>
@@ -67,6 +72,7 @@
                         })
             }
             // Here we go
+            riot.mixin('toasty', Toasty)
             riot.observable(RpgImpro.document)
             riot.route.start(true)
             riot.mount('*')

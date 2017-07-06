@@ -118,3 +118,26 @@ vertex-detail hashtag-decorator {
 .edges-inner i, .edges-outer i {
     color: #bbb;
 }
+
+/* google drive */
+google-drive form {
+    margin: 0 0.3em 0.6em;
+}
+
+.form-label-aligned label {
+    text-align: right;
+    margin-right: 0.3em;
+}
+
+.pure-button.button-error {
+    background: #FC70C2; /* this is a red */
+}
+
+.pure-form input, .pure-form select {
+    margin-bottom: 0.3em;
+}
+
+.pure-form label {
+    display: block;
+    margin-bottom: 0.3em;
+}
