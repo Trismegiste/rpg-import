@@ -47,6 +47,7 @@
             <inner-edge></inner-edge>
         </div>
     </div>
+    <hr/>
     <script>
         var self = this
         this.isEditing = false
