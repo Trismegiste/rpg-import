@@ -1,4 +1,4 @@
-function init() {
+function init() {return ;
     var doc = RpgImpro.document
     var nb = 100;
     var sentence = ['tata', 'toto', 'yoyo']
