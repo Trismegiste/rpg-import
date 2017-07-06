@@ -70,10 +70,17 @@ mark.hashtag {
 }
 
 /* vertex detail */
+vertex-detail {
+    font-size: 120%;
+    line-height: 130%;
+}
+
 vertex-detail header {
     background-color: #76D8FF;
     padding: 0.3em 0;
     margin-bottom: 0.6em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
 }
 
 vertex-detail a {
@@ -86,7 +93,7 @@ vertex-detail hashtag-decorator {
     margin-bottom: 0.6em;
 }
 
-.edge {
+.edges-inner > div, .edges-outer > div {
     margin-bottom: 0.3em;
 }
 

@@ -40,9 +40,13 @@
             </form>
         </div>
     </div>
-    <outer-edge></outer-edge>
-    <inner-edge></inner-edge>
-
+    <div class="pure-g">
+        <div class="pure-u-1-8"></div>
+        <div class="pure-u-7-8">
+            <outer-edge></outer-edge>
+            <inner-edge></inner-edge>
+        </div>
+    </div>
     <script>
         var self = this
         this.isEditing = false

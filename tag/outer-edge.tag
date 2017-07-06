@@ -1,35 +1,31 @@
 <outer-edge>
-    <div class="pure-g">
-        <div class="pure-u-1-5"></div>
-        <div class="pure-u-4-5">
-            <div class="pure-g edges-outer">
-                <div class="pure-u-11-12">
-                    <i class="icon-outer"></i>
-                </div>
-                <div class="pure-u-1-12">
-                    <a onclick="{
-                                onAddOuter
-                            }"><i class="icon-plus-squared"></i></a>
-                </div>
-                <virtual each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">
-                    <div class="pure-u-11-12 edge">
-                        <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
-                        {sentence}
-                    </div>
-                    <div class="pure-u-1-12">
-                        <a onclick="{
-                                    parent.onRemoveEdge
-                                }"><i class="icon-cancel-squared"></i></a>
-                    </div>
-                </virtual>
-                <div class="pure-u-1" if="{ viewOuter }">
-                    <form class="pure-form" onsubmit="return false">
-                        <textarea name="outer" rows="1" class="pure-input-1"></textarea>
-                    </form>
-                </div>
+    <div class="pure-g edges-outer">
+        <div class="pure-u-11-12">
+            <i class="icon-outer"></i>
+        </div>
+        <div class="pure-u-1-12">
+            <a onclick="{
+                        onAddOuter
+                    }"><i class="icon-plus-squared"></i></a>
+        </div>
+        <virtual each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">
+            <div class="pure-u-11-12">
+                <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
+                {sentence}
             </div>
+            <div class="pure-u-1-12">
+                <a onclick="{
+                            parent.onRemoveEdge
+                        }"><i class="icon-cancel-squared"></i></a>
+            </div>
+        </virtual>
+        <div class="pure-u-1" if="{ viewOuter }">
+            <form class="pure-form" onsubmit="return false">
+                <textarea name="outer" rows="1" class="pure-input-1"></textarea>
+            </form>
         </div>
     </div>
+
     <script>
         var self = this
         this.viewOuter = false
