@@ -56,8 +56,7 @@
         }
 
         this.onGDrive = function () {
-            self.parent.cloud = !self.parent.cloud
-            self.parent.update()
+            self.parent.trigger('toggle-cloud')
         }
 
         this.on('update', function () {

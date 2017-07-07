@@ -2,8 +2,14 @@
     <form class="pure-form form-label-aligned" onsubmit="{
                 onBackup
             }">
-        <h2>Document</h2>
+        <h2>Document ({RpgImpro.document.vertex.length} vertex)</h2>
         <div class="pure-g">
+            <div class="pure-u-1-4"></div>
+            <div class="pure-u-3-4">
+                <button class="pure-button button-primary pure-input-1" onclick="{
+                            onFilePicking
+                        }">Load</button>
+            </div>
             <div class="pure-u-1-4"><label>Nom</label></div>
             <div class="pure-u-3-4"><input class="pure-input-1" type="text"
                                            name="filename" value="{backupName}"
@@ -21,8 +27,8 @@
             </div>
             <div class="pure-u-1-4"></div>
             <div class="pure-u-3-4">
-                <button class="pure-button button-error" if="{driveFolder.id}">
-                    Backup to Google Drive
+                <button class="pure-button button-error pure-input-1" if="{driveFolder.id}">
+                    Save
                 </button>
             </div>
         </div>
@@ -52,5 +58,35 @@
                         self.notice(temp.vertex.length + ' vertices saved', 'success')
                     })
         }
+
+        this.onFilePicking = function () {
+            cloudClient.pickOneFile('application/json')
+                    .then(function (choice) {
+                        console.log(choice)
+                        self.backupName = choice.name
+
+                        // folder info
+                        var request = gapi.client.drive.files.get({
+                            'fileId': choice.parentId
+                        }).then(function (rsp) {
+                            console.log(rsp)
+                            self.driveFolder = rsp.result
+                        })
+
+                        // dl file content
+                        gapi.client.drive.files.get({
+                            fileId: choice.id,
+                            alt: 'media'
+                        }).then(function (rsp) {
+                            var graph = rsp.result
+                            RpgImpro.document.vertex = graph.vertex
+                            RpgImpro.document.edge = graph.edge
+                            self.notice(graph.vertex.length + ' vertices imported', 'success')
+                            self.parent.trigger('toggle-cloud')
+                        })
+                    }, function () {
+                    })
+        }
+
     </script>
 </google-drive-doc-save>

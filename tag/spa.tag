@@ -15,5 +15,10 @@
             document.getElementById('mainapp').className = ''
         })
 
+        this.on('toggle-cloud', function () {
+            self.cloud = !self.cloud
+            self.update()
+        })
+
     </script>
 </spa>
