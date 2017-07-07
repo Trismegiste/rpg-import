@@ -56,6 +56,7 @@
             cloudClient.saveFile(self.filename.value, 'application/json', JSON.stringify(temp), self.driveFolder.id)
                     .then(function (rsp) {
                         self.notice(temp.vertex.length + ' vertices saved', 'success')
+                        self.parent.trigger('toggle-cloud')
                     })
         }
 
