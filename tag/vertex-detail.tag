@@ -25,7 +25,7 @@
                         onSubmit
                     }">
                 <textarea class="pure-input-1" name="sentence" rows="3">{ vertex.sentence }</textarea>
-                <div class="pure-g">
+                <div class="pure-g spacing">
                     <div class="pure-u-1-2">
                         <button class="pure-button pure-input-1" onclick="{
                                     onCancel
