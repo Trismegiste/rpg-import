@@ -1,5 +1,7 @@
 <spa>
-    <google-drive if="{ cloud }"></google-drive>
+    <div class="cloud" if="{ cloud }">
+        <google-drive-doc></google-drive-doc>
+    </div>
     <div class="pure-g" if="{ viewForm }">
         <vertex-form class="pure-u-1"></vertex-form>
     </div>

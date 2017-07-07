@@ -127,8 +127,12 @@ vertex-detail hashtag-decorator {
 }
 
 /* google drive */
-google-drive form {
-    margin: 0 0.3em 0.6em;
+.cloud form {
+    margin: 0 0.3em 1em;
+}
+
+.cloud .button-primary {
+    margin-bottom: 0.3em;
 }
 
 .form-label-aligned label {
