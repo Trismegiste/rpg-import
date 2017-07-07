@@ -14,7 +14,7 @@
                 {sentence}
             </div>
             <div class="pure-u-1-12">
-                <a onclick="{
+                <a if="{ parent.opts.editing }" onclick="{
                             parent.onRemoveEdge
                         }"><i class="icon-cancel-squared"></i></a>
             </div>
