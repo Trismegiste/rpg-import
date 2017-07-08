@@ -60,7 +60,7 @@ mark.hashtag {
 }
 
 .sentence .hashtag {
-    background-color: #FC70C2;
+    background-color: #20FC90;
     cursor: pointer;
 }
 
@@ -111,7 +111,7 @@ vertex-detail hashtag-decorator {
 }
 
 .edges-inner a.hashtag {
-    background-color: #20FC90;
+    background-color: #FFD637;
 }
 
 .edges-outer {
@@ -119,7 +119,7 @@ vertex-detail hashtag-decorator {
 }
 
 .edges-outer a.hashtag {
-    background-color: #FFD637;
+    background-color: #20FC90;
 }
 
 .edges-inner i, .edges-outer i {
