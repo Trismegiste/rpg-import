@@ -1,8 +1,8 @@
 <google-drive-doc>
     <div if="{ !isAuthenticated() }" class="connexion">
         <a class="pure-button" onclick="{
-                onConnect
-            }">Connexion</a>
+                    onConnect
+                }">Connexion</a>
     </div>
     <form if="{ isAuthenticated() }" class="pure-form form-label-aligned" onsubmit="{
                 onBackup
@@ -49,6 +49,9 @@
         this.onConnect = function () {
             cloudClient.connect()
                     .then(function () {
+                        if (cloudClient.isTokenExpired()) {
+                            cloudClient.refreshToken()
+                        }
                         self.update()
                     })
         }
@@ -58,7 +61,7 @@
         })
 
         this.isAuthenticated = function () {
-            return gapi.auth2 && gapi.auth2.getAuthInstance().isSignedIn.get()
+            return cloudClient.isSignedIn() && !cloudClient.isTokenExpired()
         }
 
         this.onFolderPicking = function () {
