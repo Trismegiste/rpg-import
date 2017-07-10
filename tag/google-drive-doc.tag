@@ -1,5 +1,8 @@
 <google-drive-doc>
-    <form class="pure-form form-label-aligned" onsubmit="{
+    <a if="{ !isAuthenticated() }" class="pure-button" onclick="{
+                onConnect
+            }">Connexion</a>
+    <form if="{ isAuthenticated() }" class="pure-form form-label-aligned" onsubmit="{
                 onBackup
             }">
         <h2>Document ({RpgImpro.document.vertex.length} vertex)</h2>
@@ -40,6 +43,21 @@
         this.backupName = 'Sans-Titre'
         this.message = ''
         this.mixin('toasty')
+
+        this.onConnect = function () {
+            cloudClient.connect()
+                    .then(function () {
+                        self.update()
+                    })
+        }
+
+        this.on('mount', function () {
+            self.onConnect()
+        })
+
+        this.isAuthenticated = function () {
+            return gapi.auth2.getAuthInstance().isSignedIn.get()
+        }
 
         this.onFolderPicking = function () {
             cloudClient.pickOneFolder()

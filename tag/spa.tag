@@ -12,7 +12,7 @@
         this.cloud = false
 
         // this to hide waiting spinner
-        cloudClient.on('connected', function () {
+        this.on('mount', function () {
             document.getElementById('waiting').remove()
             document.getElementById('mainapp').className = ''
         })
