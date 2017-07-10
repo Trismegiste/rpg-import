@@ -1,7 +1,9 @@
 <google-drive-doc>
-    <a if="{ !isAuthenticated() }" class="pure-button" onclick="{
+    <div if="{ !isAuthenticated() }" class="connexion">
+        <a class="pure-button" onclick="{
                 onConnect
             }">Connexion</a>
+    </div>
     <form if="{ isAuthenticated() }" class="pure-form form-label-aligned" onsubmit="{
                 onBackup
             }">
@@ -56,7 +58,7 @@
         })
 
         this.isAuthenticated = function () {
-            return gapi.auth2.getAuthInstance().isSignedIn.get()
+            return gapi.auth2 && gapi.auth2.getAuthInstance().isSignedIn.get()
         }
 
         this.onFolderPicking = function () {

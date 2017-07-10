@@ -156,3 +156,8 @@ vertex-detail hashtag-decorator {
     display: block;
     margin-bottom: 0.3em;
 }
+
+.connexion {
+    text-align: center;
+    margin: 2em;
+}
