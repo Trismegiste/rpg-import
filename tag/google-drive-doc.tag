@@ -50,7 +50,9 @@
             cloudClient.connect()
                     .then(function () {
                         if (cloudClient.isTokenExpired()) {
-                            cloudClient.refreshToken()
+                            cloudClient.refreshToken().then(function () {
+                                self.update()
+                            })
                         }
                         self.update()
                     })
