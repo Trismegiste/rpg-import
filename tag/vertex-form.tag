@@ -16,7 +16,6 @@
                         }">Ajouter</button>
             </div>
         </div>
-        <input type="hidden" name="inner" value="{ model.inner }"/>
     </form>
     <script>
         var self = this
@@ -55,7 +54,6 @@
         this.onChange = function () {
             self.model.hashtag = self.hashtag.value.trim()
             self.model.sentence = self.sentence.value.trim()
-            self.model.inner = self.inner.value.trim()
         }
 
         RpgImpro.document.on('create-from-hashtag', function (hashtag, innerVertex) {
@@ -64,6 +62,7 @@
             self.model.inner = innerVertex
             self.parent.update()
             scrollToElement('create-form')
+            self.sentence.focus()
         })
 
         this.onCancel = function () {
