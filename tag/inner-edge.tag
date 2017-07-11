@@ -1,11 +1,16 @@
 <inner-edge>
     <div class="pure-g edges-inner">
-        <div class="pure-u-11-12">
+        <div class="pure-u-1-2">
             <i class="icon-inner"></i>
+        </div>
+        <div class="pure-u-5-12">
+            <a onclick="{
+                        onAddInner
+                    }"><i class="icon-link"></i></a>
         </div>
         <div class="pure-u-1-12">
             <a onclick="{
-                        onAddInner
+                        onCreateInner
                     }"><i class="icon-plus-squared"></i></a>
         </div>
         <div class="pure-u-1">
@@ -32,6 +37,10 @@
                 self.update()
                 self.inner.focus()
             }
+        }
+
+        this.onCreateInner = function () {
+            RpgImpro.document.trigger('create-from-outer', self.vertex.pk)
         }
 
         this.on('mount', function () {

@@ -22,13 +22,15 @@
         this.model = {
             hashtag: '',
             sentence: '',
-            inner: null
+            inner: null,
+            outer: null
         }
 
         this.resetModel = function () {
             self.model.hashtag = ''
             self.model.sentence = ''
             self.model.inner = null
+            self.model.outer = null
         }
 
         this.onCreate = function () {
@@ -42,6 +44,10 @@
             if (self.model.inner && newPk) {
                 RpgImpro.document.addEdge(self.model.inner, newPk)
             }
+            if (self.model.outer && newPk) {
+                RpgImpro.document.addEdge(newPk, self.model.outer)
+            }
+            // repository (@todo useless ?)
             RpgImpro.repository.addUniqueVertex(self.model.hashtag, self.model.sentence)
             RpgImpro.document.trigger('update')
 
@@ -68,6 +74,14 @@
         RpgImpro.document.on('create-from-link', function (innerVertex) {
             self.parent.viewForm = true
             self.model.inner = innerVertex
+            self.parent.update()
+            scrollToElement('create-form')
+            self.hashtag.focus()
+        })
+
+        RpgImpro.document.on('create-from-outer', function (outerVertex) {
+            self.parent.viewForm = true
+            self.model.outer = outerVertex
             self.parent.update()
             scrollToElement('create-form')
             self.hashtag.focus()
