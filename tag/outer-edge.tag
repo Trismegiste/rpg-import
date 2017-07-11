@@ -4,7 +4,7 @@
             <i class="icon-outer"></i>
         </div>
         <div class="pure-u-1-12">
-            <a onclick="{
+            <a if="{ !opts.editing }" onclick="{
                         onAddOuter
                     }"><i class="icon-plus-squared"></i></a>
         </div>
@@ -16,7 +16,7 @@
             <div class="pure-u-1-12">
                 <a if="{ parent.opts.editing }" onclick="{
                             parent.onRemoveEdge
-                        }"><i class="icon-cancel-squared"></i></a>
+                        }"><i class="icon-trash"></i></a>
             </div>
         </virtual>
         <div class="pure-u-1" if="{ viewOuter }">

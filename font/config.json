@@ -91,6 +91,18 @@
       "search": [
         "google-drive-logo"
       ]
+    },
+    {
+      "uid": "2626e3a1bbcd90e45849af3b58a1d594",
+      "css": "trash",
+      "code": 59400,
+      "src": "entypo"
+    },
+    {
+      "uid": "815503841e980c848f55e0271deacead",
+      "css": "link",
+      "code": 59401,
+      "src": "entypo"
     }
   ]
 }
