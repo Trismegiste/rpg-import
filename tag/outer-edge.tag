@@ -32,6 +32,10 @@
 
         this.onAddOuter = function () {
             self.viewOuter = !self.viewOuter
+            if (self.viewOuter) {
+                self.update()
+                self.outer.focus()
+            }
         }
 
         this.onRemoveEdge = function (e) {
