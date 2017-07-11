@@ -1,11 +1,16 @@
 <outer-edge>
     <div class="pure-g edges-outer">
-        <div class="pure-u-11-12">
+        <div class="pure-u-1-2">
             <i class="icon-outer"></i>
+        </div>
+        <div class="pure-u-5-12">
+            <a if="{ !opts.editing }" onclick="{
+                        onAddOuter
+                    }"><i class="icon-link"></i></a>
         </div>
         <div class="pure-u-1-12">
             <a if="{ !opts.editing }" onclick="{
-                        onAddOuter
+                        onCreateOuter
                     }"><i class="icon-plus-squared"></i></a>
         </div>
         <virtual each="{ RpgImpro.document.getVertexBySource(vertex.pk) }">
@@ -36,6 +41,10 @@
                 self.update()
                 self.outer.focus()
             }
+        }
+
+        this.onCreateOuter = function () {
+            RpgImpro.document.trigger('create-from-link', self.vertex.pk)
         }
 
         this.onRemoveEdge = function (e) {

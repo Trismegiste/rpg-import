@@ -65,6 +65,14 @@
             self.sentence.focus()
         })
 
+        RpgImpro.document.on('create-from-link', function (innerVertex) {
+            self.parent.viewForm = true
+            self.model.inner = innerVertex
+            self.parent.update()
+            scrollToElement('create-form')
+            self.hashtag.focus()
+        })
+
         this.onCancel = function () {
             self.parent.viewForm = false
             self.resetModel()
