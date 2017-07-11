@@ -3,6 +3,25 @@ footer {
     text-align: center;
 }
 
+/* FORM */
+.form-label-aligned label {
+    text-align: right;
+    margin-right: 0.3em;
+}
+
+.pure-button.button-error {
+    background: #FC70C2; /* this is a red */
+}
+
+.pure-form input, .pure-form select, .pure-form textarea {
+    margin-bottom: 0.3em;
+}
+
+.pure-form label {
+    display: block;
+    margin-bottom: 0.3em;
+}
+
 /* for spinner */
 #waiting {
     text-align: center;
@@ -35,9 +54,9 @@ a:link, a:visited {
     cursor: pointer;
 }
 
-/* form */
+/* vertex form */
 vertex-form form {
-    margin-bottom: 1em;
+    margin: 0 0.3em 1em;
 }
 
 .pure-button.button-primary {
@@ -136,24 +155,6 @@ vertex-detail hashtag-decorator {
 }
 
 .cloud .button-primary {
-    margin-bottom: 0.3em;
-}
-
-.form-label-aligned label {
-    text-align: right;
-    margin-right: 0.3em;
-}
-
-.pure-button.button-error {
-    background: #FC70C2; /* this is a red */
-}
-
-.pure-form input, .pure-form select {
-    margin-bottom: 0.3em;
-}
-
-.pure-form label {
-    display: block;
     margin-bottom: 0.3em;
 }
 
