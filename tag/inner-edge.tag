@@ -28,6 +28,10 @@
 
         this.onAddInner = function () {
             self.viewInner = !self.viewInner
+            if (self.viewInner) {
+                self.update()
+                self.inner.focus()
+            }
         }
 
         this.on('mount', function () {
