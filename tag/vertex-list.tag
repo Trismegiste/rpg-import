@@ -51,8 +51,7 @@
         }
 
         this.onCreate = function () {
-            self.parent.viewForm = true
-            self.parent.update()
+            self.parent.trigger('add-vertex')
         }
 
         this.onGDrive = function () {
