@@ -26,7 +26,7 @@
         </virtual>
         <div class="pure-u-1" if="{ viewOuter }">
             <form class="pure-form" onsubmit="return false">
-                <textarea name="outer" rows="1" class="pure-input-1"></textarea>
+                <textarea name="outer" rows="1" class="pure-input-1" placeholder="Phrase"></textarea>
             </form>
         </div>
     </div>

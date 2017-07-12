@@ -22,7 +22,7 @@
         </div>
         <div class="pure-u-1" if="{ viewInner }">
             <form class="pure-form" onsubmit="return false">
-                <textarea name="inner" rows="1" class="pure-input-1"></textarea>
+                <textarea name="inner" rows="1" class="pure-input-1" placeholder="Phrase"></textarea>
             </form>
         </div>
     </div>
