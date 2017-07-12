@@ -63,6 +63,10 @@ vertex-form form {
     background-color: #76D8FF;
 }
 
+#hashtag {
+    text-transform: lowercase;
+}
+
 /* hashtag decoration */
 .hashtag {
     padding: 0 0.5em;

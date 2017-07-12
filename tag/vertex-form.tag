@@ -58,7 +58,7 @@
         }
 
         this.onChange = function () {
-            self.model.hashtag = self.hashtag.value.trim()
+            self.model.hashtag = self.hashtag.value.trim().toLowerCase()
             self.model.sentence = self.sentence.value.trim()
         }
 
