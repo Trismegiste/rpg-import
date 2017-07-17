@@ -1,49 +1,31 @@
 <digraph>
     <script>
-
-        var linkDistance = 200;
-
-        var colors = d3.scale.category10();
-
-        var dataset = {
-            nodes: [
-                {name: "Adam"},
-                {name: "Bob"},
-                {name: "Carrie"},
-                {name: "Donovan"},
-                {name: "Edward"},
-                {name: "Felicity"},
-                {name: "George"},
-                {name: "Hannah"},
-                {name: "Iris"},
-                {name: "Jerry"}
-            ],
-            edges: [
-                {source: 0, target: 1},
-                {source: 0, target: 2},
-                {source: 0, target: 3},
-                {source: 0, target: 4},
-                {source: 1, target: 5},
-                {source: 2, target: 5},
-                {source: 2, target: 5},
-                {source: 3, target: 4},
-                {source: 5, target: 8},
-                {source: 5, target: 9},
-                {source: 6, target: 7},
-                {source: 7, target: 8},
-                {source: 8, target: 9}
-            ]
-        };
-
-        var svg, w,h;
-
-        this.on('mount', function () {
-            w = window.innerWidth - 20
-            h = window.innerHeight
-            svg = d3.select("digraph").append("svg").attr({"width": w, "height": h})
-        })
-
         RpgImpro.document.on('update', function () {
+            var doc = RpgImpro.document
+            var linkDistance = 200;
+            var colors = d3.scale.category10();
+            var dataset = {
+                nodes: [],
+                edges: []
+            }
+            var pkMap = {}
+            var w = window.innerWidth - 20
+            var h = window.innerHeight
+
+            for (var k in doc.vertex) {
+                var v = doc.vertex[k]
+                pkMap[v.pk] = parseInt(k, 10) // javascript mystery
+                dataset.nodes.push({name: v.hashtag})
+            }
+
+            for (var k in doc.edge) {
+                var link = doc.edge[k]
+                dataset.edges.push({source: pkMap[link.source], target: pkMap[link.target]})
+            }
+
+            d3.select("digraph").select("svg").remove()
+            var svg = d3.select("digraph").append("svg").attr({"width": w, "height": h})
+
             var force = d3.layout.force()
                     .nodes(dataset.nodes)
                     .links(dataset.edges)
@@ -53,7 +35,6 @@
                     .theta(0.1)
                     .gravity(0.05)
                     .start();
-
 
             var edges = svg.selectAll("line")
                     .data(dataset.edges)
