@@ -1,9 +1,6 @@
 <digraph>
-    <div>LOL</div>
     <script>
 
-        var w = 1000;
-        var h = 600;
         var linkDistance = 200;
 
         var colors = d3.scale.category10();
@@ -38,9 +35,15 @@
             ]
         };
 
-        this.on('mount', function () {
-            var svg = d3.select("digraph").append("svg").attr({"width": w, "height": h});
+        var svg, w,h;
 
+        this.on('mount', function () {
+            w = window.innerWidth - 20
+            h = window.innerHeight
+            svg = d3.select("digraph").append("svg").attr({"width": w, "height": h})
+        })
+
+        RpgImpro.document.on('update', function () {
             var force = d3.layout.force()
                     .nodes(dataset.nodes)
                     .links(dataset.edges)
