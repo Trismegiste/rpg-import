@@ -166,3 +166,9 @@ vertex-detail hashtag-decorator {
     text-align: center;
     margin: 2em;
 }
+
+/* digraph */
+.nodelabel {
+    font-size: 12px;
+    text-anchor: middle;
+}

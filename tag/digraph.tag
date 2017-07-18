@@ -15,7 +15,7 @@
             for (var k in doc.vertex) {
                 var v = doc.vertex[k]
                 pkMap[v.pk] = parseInt(k, 10) // javascript mystery
-                dataset.nodes.push({name: v.hashtag})
+                dataset.nodes.push({name: v.sentence})
             }
 
             for (var k in doc.edge) {
@@ -68,8 +68,8 @@
                         "y": function (d) {
                             return d.y;
                         },
-                        "class": "nodelabel",
-                        "stroke": "black"})
+                        "class": "nodelabel"
+                    })
                     .text(function (d) {
                         return d.name;
                     });
