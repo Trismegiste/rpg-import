@@ -1,5 +1,31 @@
 <digraph>
     <script>
+
+        function wrap(text, width) {
+            text.each(function () {
+                var text = d3.select(this),
+                        words = text.text().split(/\s+/).reverse(),
+                        word,
+                        line = [],
+                        lineNumber = 0,
+                        lineHeight = 1.1, // ems
+                        x = text.attr("x"),
+                        y = text.attr("y"),
+                        dy = 1,//parseFloat(text.attr("dy")),
+                        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+                while (word = words.pop()) {
+                    line.push(word);
+                    tspan.text(line.join(" "));
+                    if (tspan.node().getComputedTextLength() > width) {
+                        line.pop();
+                        tspan.text(line.join(" "));
+                        line = [word];
+                        tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                    }
+                }
+            });
+        }
+
         RpgImpro.document.on('update', function () {
             var doc = RpgImpro.document
             var linkDistance = 200;
@@ -24,7 +50,11 @@
             }
 
             d3.select("digraph").select("svg").remove()
-            var svg = d3.select("digraph").append("svg").attr({"width": w, "height": h})
+            var svg = d3.select("digraph").append("svg").attr({
+                width: w,
+                height: h,
+                viewBox: "0 0 " + w + " " + h
+            })
 
             var force = d3.layout.force()
                     .nodes(dataset.nodes)
@@ -73,6 +103,9 @@
                     .text(function (d) {
                         return d.name;
                     });
+
+            svg.selectAll('.nodelabel')
+                    .call(wrap, 80)
 
             var edgepaths = svg.selectAll(".edgepath")
                     .data(dataset.edges)

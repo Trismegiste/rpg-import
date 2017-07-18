@@ -110,6 +110,7 @@
                             RpgImpro.repository.vertex = graph.vertex
                             self.notice(graph.vertex.length + ' vertices imported', 'success')
                             self.parent.trigger('toggle-cloud')
+                            RpgImpro.document.trigger('update')
                         })
                     }, function () {
                     })
