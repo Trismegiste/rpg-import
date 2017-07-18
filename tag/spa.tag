@@ -5,8 +5,8 @@
     <div class="pure-g" if="{ viewForm }">
         <vertex-form class="pure-u-1"></vertex-form>
     </div>
-    <digraph></digraph>
     <vertex-list></vertex-list>
+    <digraph></digraph>
     <script>
         var self = this
         this.viewForm = false
