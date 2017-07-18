@@ -41,7 +41,7 @@
             var doc = RpgImpro.document
             var linkDistance = 200
             var textWidth = 100
-            var colors = d3.scale.category10();
+            var colors = d3.scale.category20c();
             var dataset = {
                 nodes: [],
                 edges: []
@@ -53,7 +53,7 @@
             for (var k in doc.vertex) {
                 var v = doc.vertex[k]
                 pkMap[v.pk] = parseInt(k, 10) // javascript mystery
-                dataset.nodes.push({name: v.sentence, tag:v.hashtag})
+                dataset.nodes.push({name: v.sentence, tag: v.hashtag})
             }
 
             for (var k in doc.edge) {
@@ -93,9 +93,9 @@
                     .data(dataset.nodes)
                     .enter()
                     .append("circle")
-                    .attr({"r": 15})
+                    .attr({"r": 35})
                     .style("fill", function (d, i) {
-                        return colors(b_crc32(d.tag));
+                        return d3.hsl(360 * b_crc32(d.tag) / Math.pow(2, 32), 1, 0.75)
                     })
                     .call(force.drag)
 
@@ -156,14 +156,14 @@
                     })
                     .style("pointer-events", "none")
                     .text(function (d, i) {
-                        return 'label ' + i
+                        return d.target.tag
                     });
 
 
             svg.append('defs').append('marker')
                     .attr({'id': 'arrowhead',
                         'viewBox': '-0 -5 10 10',
-                        'refX': 25,
+                        'refX': 45,
                         'refY': 0,
                         //'markerUnits':'strokeWidth',
                         'orient': 'auto',
