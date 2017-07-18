@@ -99,6 +99,22 @@
                     })
                     .call(force.drag)
 
+            var nodeHashtag = svg.selectAll(".node-hashtag")
+                    .data(dataset.nodes)
+                    .enter()
+                    .append("text")
+                    .attr({x: function (d) {
+                            return d.x;
+                        },
+                        y: function (d) {
+                            return d.y;
+                        },
+                        class: "node-hashtag",
+                        dy: '-1.3em'
+                    })
+                    .text(function (d) {
+                        return d.tag;
+                    });
 
             var nodelabels = svg.selectAll(".nodelabel")
                     .data(dataset.nodes)
@@ -174,6 +190,12 @@
                             t.attr('y', d.y)
                         })
 
+                nodeHashtag.attr("x", function (d) {
+                    return d.x;
+                })
+                        .attr("y", function (d) {
+                            return d.y;
+                        })
             })
         })
     </script>

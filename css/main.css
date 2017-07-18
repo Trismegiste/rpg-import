@@ -168,7 +168,11 @@ vertex-detail hashtag-decorator {
 }
 
 /* digraph */
-.nodelabel {
+svg text {
     font-size: 12px;
     text-anchor: middle;
+}
+
+.node-hashtag {
+    font-weight: bolder;
 }
