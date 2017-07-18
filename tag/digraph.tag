@@ -73,7 +73,7 @@
                     .links(dataset.edges)
                     .size([w, h])
                     .linkDistance([linkDistance])
-                    .charge([-500])
+                    .charge([-900])
                     .theta(0.1)
                     .gravity(0.05)
                     .start();
@@ -118,47 +118,6 @@
 
             svg.selectAll('.nodelabel')
                     .call(wrap, textWidth)
-
-            var edgepaths = svg.selectAll(".edgepath")
-                    .data(dataset.edges)
-                    .enter()
-                    .append('path')
-                    .attr({'d': function (d) {
-                            return 'M ' + d.source.x + ' ' + d.source.y + ' L ' + d.target.x + ' ' + d.target.y
-                        },
-                        'class': 'edgepath',
-                        'fill-opacity': 0,
-                        'stroke-opacity': 0,
-                        'fill': 'blue',
-                        'stroke': 'red',
-                        'id': function (d, i) {
-                            return 'edgepath' + i
-                        }})
-                    .style("pointer-events", "none");
-
-            var edgelabels = svg.selectAll(".edgelabel")
-                    .data(dataset.edges)
-                    .enter()
-                    .append('text')
-                    .style("pointer-events", "none")
-                    .attr({'class': 'edgelabel',
-                        'id': function (d, i) {
-                            return 'edgelabel' + i
-                        },
-                        'dx': 80,
-                        'dy': 0,
-                        'font-size': 10,
-                        'fill': '#aaa'});
-
-            edgelabels.append('textPath')
-                    .attr('xlink:href', function (d, i) {
-                        return '#edgepath' + i
-                    })
-                    .style("pointer-events", "none")
-                    .text(function (d, i) {
-                        return d.target.tag
-                    });
-
 
             svg.append('defs').append('marker')
                     .attr({'id': 'arrowhead',
@@ -215,24 +174,6 @@
                             t.attr('y', d.y)
                         })
 
-
-                edgepaths.attr('d', function (d) {
-                    var path = 'M ' + d.source.x + ' ' + d.source.y + ' L ' + d.target.x + ' ' + d.target.y;
-                    //console.log(d)
-                    return path
-                });
-
-                edgelabels.attr('transform', function (d, i) {
-                    if (d.target.x < d.source.x) {
-                        bbox = this.getBBox();
-                        rx = bbox.x + bbox.width / 2;
-                        ry = bbox.y + bbox.height / 2;
-                        return 'rotate(180 ' + rx + ' ' + ry + ')';
-                    }
-                    else {
-                        return 'rotate(0)';
-                    }
-                });
             })
         })
     </script>
