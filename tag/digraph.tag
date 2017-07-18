@@ -27,7 +27,8 @@
 
         RpgImpro.document.on('update', function () {
             var doc = RpgImpro.document
-            var linkDistance = 200;
+            var linkDistance = 200
+            var textWidth = 100
             var colors = d3.scale.category10();
             var dataset = {
                 nodes: [],
@@ -104,7 +105,7 @@
                     });
 
             svg.selectAll('.nodelabel')
-                    .call(wrap, 80)
+                    .call(wrap, textWidth)
 
             var edgepaths = svg.selectAll(".edgepath")
                     .data(dataset.edges)
