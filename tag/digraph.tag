@@ -11,8 +11,7 @@
                         lineHeight = 1.1, // ems
                         x = text.attr("x"),
                         y = text.attr("y"),
-                        dy = 1, //parseFloat(text.attr("dy")),
-                        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+                        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y)
                 while (word = words.pop()) {
                     line.push(word);
                     tspan.text(line.join(" "));
@@ -20,7 +19,7 @@
                         line.pop();
                         tspan.text(line.join(" "));
                         line = [word];
-                        tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                        tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + "em").text(word);
                     }
                 }
             });
