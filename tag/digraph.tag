@@ -11,7 +11,7 @@
                         lineHeight = 1.1, // ems
                         x = text.attr("x"),
                         y = text.attr("y"),
-                        dy = 1,//parseFloat(text.attr("dy")),
+                        dy = 1, //parseFloat(text.attr("dy")),
                         tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
                 while (word = words.pop()) {
                     line.push(word);
@@ -188,12 +188,21 @@
                     }
                 });
 
-                nodelabels.attr("x", function (d) {
-                    return d.x;
-                })
+                nodelabels
+                        .attr("x", function (d) {
+                            return d.x;
+                        })
                         .attr("y", function (d) {
                             return d.y;
-                        });
+                        })
+                        .selectAll('tspan')
+                        .each(function (d) {
+                            //console.log(this, d)
+                            var t = d3.select(this)
+                            t.attr('x', d.x)
+                            t.attr('y', d.y)
+                        })
+
 
                 edgepaths.attr('d', function (d) {
                     var path = 'M ' + d.source.x + ' ' + d.source.y + ' L ' + d.target.x + ' ' + d.target.y;
