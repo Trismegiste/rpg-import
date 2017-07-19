@@ -30,7 +30,10 @@
                 width: w,
                 height: h,
                 viewBox: "0 0 " + w + " " + h
-            })
+            }).call(d3.behavior.zoom().on("zoom", function () {
+                svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+            }))
+                    .append("g")
 
             var force = d3.layout.force()
                     .nodes(dataset.nodes)
