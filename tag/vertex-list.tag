@@ -7,7 +7,7 @@
                     }" onsubmit="{
                                 noSubmit
                             }">
-                <input type="text" class="pure-input-1" name="search" value="{ keyword }" autocomplete="off"/>
+                <input type="text" class="pure-input-1" name="search" value="{ keyword }" autocomplete="off" placeholder="Search..." />
             </form>
         </div>
         <div class="pure-u-1-12"><a onclick="{
@@ -59,12 +59,23 @@
         }
 
         this.on('update', function () {
-            var regex = new RegExp(self.keyword.trim(), 'i')
+            var srch = self.keyword.trim()
             var model = RpgImpro.document.getVertex()
+
+            if (srch.length === 0) {
+                self.found = model
+                return
+            }
+
+            if (srch.length < 2) {
+                return
+            }
+
+            var regex = new RegExp(srch, 'i')
             self.found = []
             for (var k in model) {
                 var v = model[k]
-                if (regex.test('#' + v.hashtag + ' ' + v.sentence)) {
+                if (regex.test(v.hashtag) || regex.test(v.sentence)) {
                     self.found.push(v)
                 }
             }
