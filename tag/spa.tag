@@ -6,11 +6,15 @@
         <vertex-form class="pure-u-1"></vertex-form>
     </div>
     <vertex-list></vertex-list>
-    <digraph></digraph>
+    <digraph if="{ isLargeScreen() }"></digraph>
     <script>
         var self = this
         this.viewForm = false
         this.cloud = false
+
+        this.isLargeScreen = function () {
+            return window.innerWidth > 1000
+        }
 
         // this to hide waiting spinner
         this.on('mount', function () {
