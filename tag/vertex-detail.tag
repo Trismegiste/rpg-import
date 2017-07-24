@@ -44,7 +44,7 @@
         <div class="pure-u-1-8"></div>
         <div class="pure-u-7-8">
             <outer-edge editing="{ isEditing }"></outer-edge>
-            <inner-edge></inner-edge>
+            <inner-edge editing="{ isEditing }"></inner-edge>
         </div>
     </div>
     <hr/>

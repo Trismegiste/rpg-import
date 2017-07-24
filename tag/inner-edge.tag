@@ -4,22 +4,26 @@
             <i class="icon-inner"></i>
         </div>
         <div class="pure-u-5-12">
-            <a onclick="{
+            <a if="{ !opts.editing }" onclick="{
                         onAddInner
                     }"><i class="icon-link"></i></a>
         </div>
         <div class="pure-u-1-12">
-            <a onclick="{
+            <a if="{ !opts.editing }" onclick="{
                         onCreateInner
                     }"><i class="icon-plus-squared"></i></a>
         </div>
-        <div class="pure-u-1">
-            <ul>
-                <li each="{ RpgImpro.document.getVertexByTarget(vertex.pk) }">
-                    <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
-                </li>
-            </ul>
-        </div>
+        <virtual each="{ RpgImpro.document.getVertexByTarget(vertex.pk) }">
+            <div class="pure-u-11-12">
+                <a href="#show/{pk}" class="hashtag">{ hashtag }</a>
+                {sentence}
+            </div>
+            <div class="pure-u-1-12">
+                <a if="{ parent.opts.editing }" onclick="{
+                            parent.onRemoveEdge
+                        }"><i class="icon-trash"></i></a>
+            </div>
+        </virtual>
         <div class="pure-u-1" if="{ viewInner }">
             <form class="pure-form" onsubmit="return false">
                 <textarea name="inner" rows="1" class="pure-input-1" placeholder="Phrase"></textarea>
@@ -41,6 +45,10 @@
 
         this.onCreateInner = function () {
             RpgImpro.document.trigger('create-from-outer', self.vertex.pk)
+        }
+
+        this.onRemoveEdge = function (e) {
+            RpgImpro.document.cutEdge(e.item.pk, self.vertex.pk)
         }
 
         this.on('mount', function () {
