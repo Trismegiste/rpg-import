@@ -59,7 +59,7 @@
 
         this.onChange = function () {
             self.model.hashtag = self.hashtag.value.trim().toLowerCase().replace(/ /g, '-')
-            //self.model.sentence = self.sentence.value.trim()
+            self.model.sentence = self.sentence.value
         }
 
         RpgImpro.document.on('create-from-hashtag', function (hashtag, innerVertex) {
