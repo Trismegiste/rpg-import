@@ -60,7 +60,7 @@
                     .data(dataset.nodes)
                     .enter()
                     .append("circle")
-                    .attr({"r": 35})
+                    .attr({"r": 50})
                     .style("fill", function (d, i) {
                         return d3.hsl(360 * b_crc32(d.tag) / Math.pow(2, 32), 1, 0.75)
                     })
@@ -105,7 +105,7 @@
             svg.append('defs').append('marker')
                     .attr({'id': 'arrowhead',
                         'viewBox': '-0 -5 10 10',
-                        'refX': 45,
+                        'refX': 60,
                         'refY': 0,
                         //'markerUnits':'strokeWidth',
                         'orient': 'auto',
