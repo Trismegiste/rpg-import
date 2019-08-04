@@ -47,8 +47,6 @@
             if (self.model.outer && newPk) {
                 RpgImpro.document.addEdge(newPk, self.model.outer)
             }
-            // repository (@todo useless ?)
-            RpgImpro.repository.addUniqueVertex(self.model.hashtag, self.model.sentence)
             RpgImpro.document.trigger('update')
 
             self.resetModel()
@@ -115,7 +113,7 @@
                 {
                     match: /(^)([^\s]+)$/,
                     search: function (term, callback) {
-                        var repo = RpgImpro.repository.vertex
+                        var repo = RpgImpro.document.vertex
                         var found = []
                         for (var k in repo) {
                             var v = repo[k]
@@ -136,7 +134,7 @@
                 {
                     match: /(^|\s)#([^\s]+)$/,
                     search: function (term, callback) {
-                        var repo = RpgImpro.repository.vertex
+                        var repo = RpgImpro.document.vertex
                         var found = []
                         for (var k in repo) {
                             var v = repo[k]
@@ -154,7 +152,7 @@
                 {
                     match: /(^)([^\s]+)$/,
                     search: function (term, callback) {
-                        var repo = RpgImpro.repository.vertex
+                        var repo = RpgImpro.document.vertex
                         var filter = self.model.hashtag
 
                         var found = []

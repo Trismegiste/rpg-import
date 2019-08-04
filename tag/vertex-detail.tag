@@ -87,7 +87,7 @@
                 {
                     match: /(^|\s)#([^\s]+)$/,
                     search: function (term, callback) {
-                        var repo = RpgImpro.repository.vertex
+                        var repo = RpgImpro.document.vertex
                         var found = []
                         for (var k in repo) {
                             var v = repo[k]

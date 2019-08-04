@@ -107,7 +107,6 @@
                             var graph = rsp.result
                             RpgImpro.document.vertex = graph.vertex
                             RpgImpro.document.edge = graph.edge
-                            RpgImpro.repository.vertex = graph.vertex
                             self.notice(graph.vertex.length + ' vertices imported', 'success')
                             self.parent.trigger('toggle-cloud')
                             RpgImpro.document.trigger('update')
