@@ -151,3 +151,12 @@ Graph.prototype.cutEdge = function (src, tgt) {
         }
     }
 }
+
+Graph.prototype.export = function () {
+    console.log(this)
+}
+
+Graph.prototype.import = function (json) {
+    this.edge = json.edge
+    this.vertex = json.vertex
+}
