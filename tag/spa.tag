@@ -30,7 +30,9 @@
         this.on('add-vertex', function () {
             self.viewForm = !self.viewForm
             self.update()
-            document.getElementById('hashtag').focus()
+            if (self.viewForm) {
+                document.getElementById('hashtag').focus()
+            }
         })
 
     </script>
