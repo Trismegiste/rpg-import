@@ -78,14 +78,14 @@
                         return '#' + obj.hashtag + ' ' + obj.sentence
                     },
                     replace: function (value) {
-                        return value.pk
+                        return value.pk  // Y aurait-il un bug à ce moment là ? Resterait-il des anciens caractères quand le "on('selected'," est trigger ?
                     }
                 }
             ])
 
 
             tc.on('selected', function () {
-                var pk = self.outer.value
+                var pk = self.outer.value               
                 self.outer.value = ''
                 self.viewOuter = false
                 RpgImpro.document.addEdge(self.vertex.pk, pk)

@@ -91,10 +91,23 @@ Graph.prototype.getVertexByTarget = function (pk) {
  * @param string target primary key
  */
 Graph.prototype.addEdge = function (source, target) {
-    if ((source !== target)
-            && (!this.hasEdge(source, target))) {
-        this.edge.push({source: source, target: target})
+    if (source === target) {
+        return
     }
+    
+    if (this.hasEdge(source, target)) {
+        return
+    }
+
+    if (undefined === this.findVertexByPk(source)) {
+        throw new Error(source + " is unknown source")
+    }
+
+    if (undefined === this.findVertexByPk(target)) {
+        throw new Error(target + " is unknown target")
+    }
+
+    this.edge.push({source: source, target: target})
 }
 
 Graph.prototype.isSource = function (v) {
