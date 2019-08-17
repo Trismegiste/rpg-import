@@ -21,7 +21,9 @@
                 }"><i class="icon-google-drive-logo"></i></a></div>
     </div>
     <div class="pure-g">
-        <div class="vertex pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4" each="{ vertex in found }">
+        <div class="vertex pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4" 
+             each="{ vertex in found }" 
+             style="background-color: {getLinkedVertexClass(vertex)}">
             <div if="{vertex.pk != selected}">
                 <vertex></vertex>
             </div>
@@ -96,6 +98,10 @@
             self.update()
             scrollToElement('selected')
         })
+
+        this.getLinkedVertexClass = function (v) {
+            return d3.hsl(360 * b_crc32(v.hashtag) / Math.pow(2, 32), 1, 0.9)
+        }
 
     </script>
 </vertex-list>

@@ -1,0 +1,6 @@
+* colorer les fonds de vertex non-selectionnés qui sont reliés au vertex selectionné (couleurs jaune pisseux et vert pomme pour les inbound & outbound)
+* colorer les fonds de vertex en fonction de la distance avec le vertex selectionné
+* colorer les fonds de vertex en fonction du nombre de liens dans le graphe, ça permet de détecter les orphelins (en blanc)
+* colorer les fonds de vertex en fonctin du crc32 du hashtag pour visualiser la quantité de tag différents
+
+* Encastrer tous les boutons en icones en gros boutons de form
