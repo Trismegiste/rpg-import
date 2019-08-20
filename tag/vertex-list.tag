@@ -20,6 +20,31 @@
                     onGDrive
                 }"><i class="icon-google-drive-logo"></i></a></div>
     </div>
+    <form class="pure-form pure-g" onchange="{
+                onChangeColor
+            }">
+        <div class="pure-u-1-3">
+            <label>
+                <input type="radio" name="scheme" value="white"
+                       checked="{ colorScheme == 'white' }"/>
+                White
+            </label>
+        </div>
+        <div class="pure-u-1-3">
+            <label>
+                <input type="radio" name="scheme" value="tag"
+                       checked="{ colorScheme == 'tag' }"/>
+                Tag
+            </label>
+        </div>
+        <div class="pure-u-1-3">
+            <label>
+                <input type="radio" name="scheme" value="distance"
+                       checked="{ colorScheme == 'distance' }"/>
+                Distance
+            </label>
+        </div>
+    </form>
     <div class="pure-g">
         <div class="vertex pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4" 
              each="{ vertex in found }" 
@@ -33,9 +58,12 @@
         </div>
     </div>
     <script>
-        this.selected = 0 // by default, first entry on the list
+        this.selected = 0
         this.keyword = ''
         this.found = RpgImpro.document.getVertex()
+        this.colorScheme = 'white'
+        this.colorSchemeChoice = []
+        this.vertexColor = {}
         var self = this
 
         RpgImpro.document.on('update', function () {
@@ -100,7 +128,38 @@
         })
 
         this.getLinkedVertexClass = function (v) {
-            return d3.hsl(360 * b_crc32(v.hashtag) / Math.pow(2, 32), 1, 0.9)
+            switch (self.colorScheme) {
+                case 'white':
+                    return 'white'
+                case 'tag':
+                    return d3.hsl(360 * b_crc32(v.hashtag) / Math.pow(2, 32), 1, 0.9)
+                case 'distance':
+                    return self.vertexColor.hasOwnProperty(v.pk) ? self.vertexColor[v.pk] : 'white'
+            }
+        }
+
+        this.onChangeColor = function (e) {
+            // manage radio
+            self.scheme.forEach(function (radio) {
+                if (radio.checked) {
+                    self.colorScheme = radio.value
+                }
+            })
+            // action
+            if (self.colorScheme === 'distance') {
+                self.vertexColor = {}
+                if (self.select === 0)
+                    return
+                var vertices = RpgImpro.document.getVertexBySource(self.selected)
+                for (var idx in vertices) {
+                    self.vertexColor[vertices[idx].pk] = 'green'
+                }
+                vertices = RpgImpro.document.getVertexByTarget(self.selected)
+                for (var idx in vertices) {
+                    self.vertexColor[vertices[idx].pk] = 'yellow'
+                }
+                console.log(self.vertexColor)
+            }
         }
 
     </script>
