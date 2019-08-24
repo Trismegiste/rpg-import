@@ -6,7 +6,6 @@
         <vertex-form class="pure-u-1"></vertex-form>
     </div>
     <vertex-list></vertex-list>
-    <digraph if="{ isLargeScreen() }"></digraph>
     <script>
         var self = this
         this.viewForm = false
