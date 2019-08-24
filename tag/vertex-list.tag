@@ -23,21 +23,28 @@
     <form class="pure-form pure-g" onchange="{
                 onChangeColor
             }">
-        <div class="pure-u-1-3">
+        <div class="pure-u-1-4">
             <label>
                 <input type="radio" name="scheme" value="white"
                        checked="{ colorScheme == 'white' }"/>
                 White
             </label>
         </div>
-        <div class="pure-u-1-3">
+        <div class="pure-u-1-4">
             <label>
                 <input type="radio" name="scheme" value="tag"
                        checked="{ colorScheme == 'tag' }"/>
                 Tag
             </label>
         </div>
-        <div class="pure-u-1-3">
+        <div class="pure-u-1-4">
+            <label>
+                <input type="radio" name="scheme" value="neighbour"
+                       checked="{ colorScheme == 'neighbour' }"/>
+                Neighbour
+            </label>
+        </div>
+        <div class="pure-u-1-4">
             <label>
                 <input type="radio" name="scheme" value="distance"
                        checked="{ colorScheme == 'distance' }"/>
@@ -123,6 +130,7 @@
 
         riot.route('/show/*', function (pk) {
             self.selected = pk
+            self.recalcColorNeighbour()
             self.update()
             scrollToElement('selected')
         })
@@ -133,7 +141,7 @@
                     return 'white'
                 case 'tag':
                     return d3.hsl(360 * b_crc32(v.hashtag) / Math.pow(2, 32), 1, 0.9)
-                case 'distance':
+                case 'neighbour':
                     return self.vertexColor.hasOwnProperty(v.pk) ? self.vertexColor[v.pk] : 'white'
             }
         }
@@ -147,18 +155,21 @@
             })
             // action
             if (self.colorScheme === 'distance') {
-                self.vertexColor = {}
-                if (self.select === 0)
-                    return
-                var vertices = RpgImpro.document.getVertexBySource(self.selected)
-                for (var idx in vertices) {
-                    self.vertexColor[vertices[idx].pk] = 'green'
-                }
-                vertices = RpgImpro.document.getVertexByTarget(self.selected)
-                for (var idx in vertices) {
-                    self.vertexColor[vertices[idx].pk] = 'yellow'
-                }
-                console.log(self.vertexColor)
+                self.recalcColorNeighbour()
+            }
+        }
+
+        this.recalcColorNeighbour = function () {
+            self.vertexColor = {}
+            if (self.select === 0)
+                return
+            var vertices = RpgImpro.document.getVertexBySource(self.selected)
+            for (var idx in vertices) {
+                self.vertexColor[vertices[idx].pk] = '#a4fcd1'
+            }
+            vertices = RpgImpro.document.getVertexByTarget(self.selected)
+            for (var idx in vertices) {
+                self.vertexColor[vertices[idx].pk] = '#ffefb3'
             }
         }
 
